@@ -24,8 +24,177 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section
+					data-background-image="https://pub.dartlang.org/static/img/dart-logo-400x400.png"
+					data-background-size="auto 80%">
+					<h1>Dart/Flutter 入門</h1>
+					<h2>+ 最強の勤怠アプリを作った話</h2>
+
+					<p>2017/2/27</p>
+				</section>
+
+				<section>
+					<h2>自己紹介</h2>
+					<ul>
+						<li>西田雅博</li>
+						<li><a href="https://github.com/adwd">github.com/adwd</a></li>
+						<li>株式会社ビズリーチ HRMOS事業部</li>
+						<li>人事戦略クラウドサービス <a href="https://hrmos.co/">HRMOS</a> 作ってます</li>
+						<li>Scala/React書いてます</li>
+					</ul>
+					<img src="https://github.com/adwd.png" />
+				</section>
+
+				<section>
+					<section data-background-iframe="https://hrmos.co/">
+					</section>
+
+					<section data-background-iframe="https://hrmos.co/kintai">
+					</section>
+				</section>
+
+				<section>
+					<h2>今日の内容</h2>
+					<ul>
+						<li>Dart</li>
+						<li>Flutter</li>
+						<li>Flutterを作って最強の勤怠アプリを作った話</li>
+						<ul>
+							<li>おまけです &#x1f602;</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section
+					data-background-image="https://pub.dartlang.org/static/img/dart-logo-400x400.png"
+					data-background-size="auto 80%">
+					<h1>Dart</h1>
+				</section>
+
+				<section>
+
+					<section>
+						<h2>歴史</h2>
+						<ul>
+							<li>2011年にGoogleが発表</li>
+							<li>ブラウザ上で動作し、JavaScriptを置き換える目的</li>
+							<ul>
+								<li>各ブラウザがDartVMを搭載する必要がある &#x1f628;</li>
+								<li>やっぱりそれは無理なのであきらめた</li>
+								<li>(dart2jsでJSに変換して動かすことはできる)</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section>
+						<h3>それから時は流れ…</h3>
+					</section>
+
+					<section>
+						<h2>Dart復権の兆し？</h2>
+						<ul>
+							<li>2016年にGoogle社内で一番書かれたプログラミング言語はDart</li>
+							<li>書きやすさと動作速度からRubyに代わってSassの実装に採用される</li>
+							<li>Googleの収益を大きな割合を占めるAdSense/AdWordsのフロントエンドがAngular Dartで書き換えられる</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>少なくともGoogleは本気っぽい？</h3>
+					</section>
+
+					<section>
+						<h3>これからのDart (1)</h3>
+						<ul>
+							<li>DDC(Dart Dev Compiler)</li>
+							<ul>
+								<li>静的チェックを行い可読性の高いES2015を吐くコンパイラ</li>
+							</ul>
+							<li>Angular Dart</li>
+							<ul>
+								<li>Angular2からTypeScript版と開発がわかれ、Dartフレンドリーなシンタックスや最適化が行われる</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section>
+						<h3>これからのDart (2)</h3>
+						<ul>
+							<li>Flutter</li>
+							<ul>
+								<li>React/Flux的アーキテクチャでAndroid/iOS向けバイナリをビルドするフレームワーク</li>
+							</ul>
+							<li>Fuchsia</li>
+							<ul>
+								<li>Googleが開発中のオープンソースOS</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+						<h1 style="color: black;">Dartの未来は<br />明るいぜよ！！</h1>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Dartのシンタックス</h2>
+					</section>
+
+					<section>
+						<h3>Javaっぽいシンタックス</h3>
+						<iframe src='https://dartpad.dartlang.org/embed-dart.html?id=5674ef919c8edf966901d4082aae5081' style='height:500px;width:100%;' frameborder='0'></iframe>
+					</section>
+
+					<section>
+						<h3>Optional Types</h3>
+						<iframe src='https://dartpad.dartlang.org/embed-dart.html?id=f4effd6be0ce4db13d965c30b553de7a' style='height:500px;width:100%;' frameborder='0'></iframe>
+					</section>
+
+					<section>
+						<h3>DOM API</h3>
+						<iframe src='https://dartpad.dartlang.org/embed-html.html?id=f5fca9563936cc420d4a2b55473756e4' style='height:500px;width:100%;' frameborder='0'></iframe>
+					</section>
+
+					<section>
+						<h3>Cascade notation</h3>
+						<iframe src='https://dartpad.dartlang.org/embed-html.html?id=fbebcf923fd3a30f5237b89e8fc3f6f1' style='height:500px;width:100%;' frameborder='0'></iframe>
+					</section>
+
+					<section>
+						<h3>async/await</h3>
+						<iframe src='https://dartpad.dartlang.org/embed-html.html?id=6f6f301d7397d79108a9227400b13f95' style='height:500px;width:100%;' frameborder='0'></iframe>
+					</section>
+
+					<section>
+						<h3>ほかにもいろいろ</h3>
+						<ul>
+							<li>final, const</li>
+							<li>optional, named, default function parameters</li>
+							<li>named, factory constructor</li>
+							<li>class, mixin</li>
+							<li>generics</li>
+							<li>など</li>
+						</ul>
+						<a href="https://www.dartlang.org/guides/language/language-tour">https://www.dartlang.org/guides/language/language-tour</a>
+					</section>
+
+					<section>
+						<p>とはいえそんな突拍子な学習コストの高いシンタックスはない。<br />今使っているJS/Java/C#などから自然に移行できる &#x1F4AA;</p>
+					</section>
+				</section>
+
+				<section>
+					TODO: Flutterについて
+				</section>
+
+				<section>
+					TODO: 最強の勤怠アプリを作った話
+				</section>
+
+				<section>
+					おわり
+				</section>
 			</div>
 		</div>
 
