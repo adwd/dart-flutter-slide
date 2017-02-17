@@ -1,0 +1,11 @@
+/* background-image を少し暗くしたいときは data-state="dimbg" をつける */
+.dimbg .slide-background {
+  filter: brightness(.8);
+}
+
+/* iframeで dart-pad を差し込んでるやつ */
+iframe.code {
+  height: 550px;
+  width: 100%;
+  /*transform: scale(1.1);*/
+}
