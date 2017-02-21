@@ -197,6 +197,55 @@
 				</section>
 
 				<section>
+
+					<section>
+						<h1>Dartをはじめる</h1>
+					</section>
+
+					<section>
+						<h2>Dartのインストール</h2>
+					</section>
+
+					<section>
+						<h2>Mac</h2>
+						<pre><code data-trim data-noescape>
+							$ brew tap dart-lang/dart
+							$ brew install dart
+							# Web開発するならDartiumも一緒にインストールする
+							$ brew install dart --with-content-shell --with-dartium
+							$ export PATH=$PATH:path/to/installed/dart/bin
+						</code></pre>
+
+						<h2>Windows</h2>
+						<pre><code data-trim data-noescape>
+							> choco install dart-sdk -version 1.22
+							> choco install dartium  -version 1.22
+							> set PATH=%PATH%;C:path/to/installed/dart/bin
+						</code></pre>
+
+						Linuxは省略
+					</section>
+
+					<section>
+						<h2>Dart Pad</h2>
+						<h3>ブラウザからDartを動かす</h3>
+						<a href="https://dartpad.dartlang.org/">https://dartpad.dartlang.org/</a>
+					</section>
+
+					<section>
+						<h3>Dart Padでコンソールアプリ</h3>
+						<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=90d9a3f974be1b272a2c1d6bf5ea8505' class="code"></iframe>
+					</section>
+
+					<section>
+						<h3>HTMLもOK</h3>
+						<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=49d384dac2fafda7d32978fb07ac0882' class="code"></iframe>
+					</section>
+
+
+				</section>
+
+				<section>
 					<section>
 						<h2>Dartのシンタックス</h2>
 					</section>
@@ -248,19 +297,151 @@
 
 				<section>
 
-					<section>
-						<h3>Flutterについて</h3>
+					<section
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h1>Flutter</h1>
 					</section>
 
-					<section>
-						<h3>Flutter？</h3>
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>Flutter</h3>
 						　<ul>
 							<li>現在まだ早期プレビュー段階</li>
 							<li>Android/iOSで動作するハイパフォーマンスなモバイルアプリを作るフレームワーク</li>
 							<li>アプリケーションはWebViewとかじゃなくてネイティブコードにAOTコンパイルされる</li>
-							<li>React/Fluxにインスパイアされたコンポーネント指向、状態管理、単方向データフロー</li>
 						</ul>
 					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>Flutter</h3>
+						　<ul>
+							<li>React/Fluxにインスパイアされたコンポーネント指向、状態管理、単方向データフロー</li>
+							<ul>
+								<li>コンポーネントの木構造を宣言的に定義</li>
+								<li>StatlessWidget, StatefulWidget, setState</li>
+							</ul>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+
+					<section
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h1>Flutterをはじめる</h1>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>Flutterをインストール</h3>
+						　<ul>
+							<li>Mac, Linuxにインストールできる</li>
+							<ul>
+								<li>Windowsは現在対応中</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>Flutterをインストール</h3>
+						<pre><code data-trim data-noescape class="sh">
+							# ＿人人人人人人人人人人人人＿
+							# ＞　git cloneしてPATHを通す　＜
+							# ￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣
+							$ git clone https://github.com/flutter/flutter.git
+							$ export PATH=`pwd`/flutter/bin:$PATH
+
+							# 必要なものが入っているかチェックしてくれる
+							$ flutter doctor
+
+							# XCodeでiOSシミュレーターとかAndroid Studioなどをインストール
+						</code></pre>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>flutter create</h3>
+						<pre><code data-trim data-noescape class="sh">
+							$ flutter create my-flutter-app
+							Creating project my-flutter-app...
+							Wrote 59 files.
+
+							Running 'flutter packages get' in my-flutter-app...   5.3s
+
+							[✓] Flutter is fully installed. (on Mac OS, channel master)
+							[✓] Android toolchain - develop for Android devices is fully installed. (Android SDK 24.0.1)
+							[✓] iOS toolchain - develop for iOS devices is fully installed. (Xcode 8.1)
+							[✓] IntelliJ IDEA Ultimate Edition is fully installed. (version 2016.3.4)
+							[✓] Connected devices is fully installed.
+
+							All done! In order to run your application, type:
+
+								$ cd my-flutter-app
+								$ flutter run
+
+							Your main program file is lib/main.dart in the my-flutter-app directory.
+						</code></pre>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>flutter run</h3>
+						<pre><code data-trim data-noescape class="sh">
+							$ cd my-flutter-app
+							$ open -a Simulator # iOSシミュレータを起動
+							$ flutter run
+						</code></pre>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<img data-src="image/flutter-create.png" alt="flutter app screen shot" style="height: 90vh;">
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>その他の主なサブコマンド</h3>
+						<pre><code data-trim data-noescape>
+							$ flutter
+							Available commands:
+								analyze      Analyze the projects Dart code.
+								build        Flutter build commands.
+								devices      List all connected devices.
+								doctor       Show information about the installed tooling.
+								install      Install a Flutter app on an attached device.
+								screenshot   Take a screenshot from a connected device.
+								stop         Stop your Flutter app on an attached device.
+								test         Run Flutter unit tests for the current project.
+						</code></pre>
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+						<h3 style="color: black;">まだgit cloneはアレだけど...</h3>
+						<h3 style="color: black;">便利なCLIが用意されていて今後に期待できる &#x1F4AA;</h3>
+					</section>
+
+				</section>
+
+				<section>
+					
+					<section
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+					<h1>Flutter 入門</h1>	
+					</section>
+
 				</section>
 
 				<section>
