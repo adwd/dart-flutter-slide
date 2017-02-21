@@ -238,11 +238,44 @@
 					</section>
 
 					<section>
-						<h3>HTMLもOK</h3>
+						<h3>WebアプリもOK</h3>
 						<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=49d384dac2fafda7d32978fb07ac0882' class="code"></iframe>
 					</section>
 
+					<section data-state="dimbg"
+						data-background-image="image/intellij-dart.png"
+						data-background-size="auto 80%">
+						<h1>IntelliJ plugin</h1>
+						<ul>
+							<li>シンタックスハイライト</li>
+							<li>デバッグ実行</li>
+							<li>などなど</li>
+						</ul>
+					</section>
 
+					<section data-state="dimbg"
+						data-background-image="image/intellij-dart-create-project.png"
+						data-background-size="auto 80%">
+						<ul>
+							<li>Dartプロジェクトの新規作成</li>
+							<ul>
+								<li>コンソールアプリケーション</li>
+								<li>Webアプリケーション</li>
+								<li>Angularアプリケーション</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+						<h2 style="color: black;">Dart Padですぐ始められる！</h2>
+						<h2 style="color: black;">IntelliJ pluginもある！</h2>
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+						<h2 style="color: black;">あなたとDart</h2>
+						<h2 style="color: black;">いますぐダウンロー</h2>
+						<h2 style="color: black;">ド &#x1F4AA;</h2>
+					</section>
 				</section>
 
 				<section>
@@ -358,6 +391,7 @@
 							# ￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣
 							$ git clone https://github.com/flutter/flutter.git
 							$ export PATH=`pwd`/flutter/bin:$PATH
+							# flutter コマンドが使えるようになる
 
 							# 必要なものが入っているかチェックしてくれる
 							$ flutter doctor
@@ -375,13 +409,7 @@
 							Creating project my-flutter-app...
 							Wrote 59 files.
 
-							Running 'flutter packages get' in my-flutter-app...   5.3s
-
-							[✓] Flutter is fully installed. (on Mac OS, channel master)
-							[✓] Android toolchain - develop for Android devices is fully installed. (Android SDK 24.0.1)
-							[✓] iOS toolchain - develop for iOS devices is fully installed. (Xcode 8.1)
-							[✓] IntelliJ IDEA Ultimate Edition is fully installed. (version 2016.3.4)
-							[✓] Connected devices is fully installed.
+							...
 
 							All done! In order to run your application, type:
 
@@ -412,7 +440,55 @@
 					<section data-state="dimbg"
 						data-background-image="image/flutter-mark.png"
 						data-background-size="auto 80%">
-						<h3>その他の主なサブコマンド</h3>
+						<h3>その他の便利サブコマンド（一部）</h3>
+						<ul>
+							<li>test</li>
+							<ul>
+								<li>ユニットテストの実行</li>
+							</ul>
+							<li>devices</li>
+							<ul>
+								<li>シミュレータやUSB接続したデバイスのリストを表示する</li>
+							</ul>
+							<li>install</li>
+							<ul>
+								<li>デバイスにFlutterアプリをインストールする</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/intellij-plugin.png"
+						data-background-size="auto 80%">
+						<h2>IntelliJのplugin</h2>
+						<ul>
+							<li>Flutterプロジェクトの新規作成</li>
+							<li>Cmd+d でデバッグ実行</li>
+							<li>Cmd+Alt+; でホットリロード</li>
+							<li>Shift+Cmd+Alt+; でフルリロード</li>
+						</ul>
+						<p class="fragment">webpackに慣れすぎて↑が無設定で動くことに感動 &#x1F62D;</p>
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+						<h3 style="color: black;">まだgit cloneはアレだけど...</h3>
+						<h3 style="color: black;">便利なCLIが用意されている！</h3>
+						<h3 style="color: black;">IDEの連携もあり開発・デバッグが非常に楽！</h3>
+						<h3 style="color: black;">今後に期待できる &#x1F4AA;</h3>
+					</section>
+
+				</section>
+
+				<section>
+					
+					<section
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h1>Flutter 入門</h1>	
+					</section>
+
+					<section>
+						<h2>プロジェクト構成</h2>
 						<pre><code data-trim data-noescape>
 							$ flutter
 							Available commands:
@@ -425,21 +501,6 @@
 								stop         Stop your Flutter app on an attached device.
 								test         Run Flutter unit tests for the current project.
 						</code></pre>
-					</section>
-
-					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
-						<h3 style="color: black;">まだgit cloneはアレだけど...</h3>
-						<h3 style="color: black;">便利なCLIが用意されていて今後に期待できる &#x1F4AA;</h3>
-					</section>
-
-				</section>
-
-				<section>
-					
-					<section
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-					<h1>Flutter 入門</h1>	
 					</section>
 
 				</section>
