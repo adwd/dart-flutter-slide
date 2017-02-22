@@ -9,3 +9,7 @@ iframe.code {
   width: 100vw;
   /*transform: scale(1.1);*/
 }
+
+code {
+  font-family: 'Fira Mono', monospace;
+}
