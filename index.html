@@ -65,6 +65,7 @@
 							<li>おまけです &#x1f602;</li>
 						</ul>
 					</ul>
+					<p>資料を見てる人向け: スライドを↓に進めるのを多用してます</p>
 				</section>
 
 				<section
@@ -842,7 +843,7 @@
 
 					<section>
 						<h2>しかしそのアプリには問題があった...</h2>
-						<p><b>個人的な意見です</b></p>
+						<h3>※ 個人的な意見・感想です</h3>
 						<p>出勤・退勤画面を御覧ください</p>
 					</section>
 
@@ -862,7 +863,28 @@
 					</section>
 
 					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
-						<h3>そんなみんなの思いを受け止める勤怠アプリをFlutterで作る！</h3>
+						<h3>開発当初同様の指摘はあった！</h3>
+					</section>
+
+					<section data-background="image/declined-by-leader.png" data-background-size="contain">
+					</section>
+
+					<section data-background="image/declined-by-leader-detail.png" data-background-size="contain" data-state="dimbg">
+						<h3>開発リーダーによる謎のスルー</h3>
+						<ul>
+							<li>開発リーダーによる「たしかに」という回答</li>
+							<li>しかしチケットに起票されるわけでもない</li>
+						</ul>
+						<p><b>(実際は謎でも何でもない適切な判断が行われています)</b></p>
+					</section>
+
+					<section data-background="image/declined-by-leader.png" data-background-size="contain" data-state="dimbg">
+						<h2>だったら自分で作るしかない！！ &#x1F4AA; &#x1F4AA;</h2>
+					</section>
+
+					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
+						<h2>みんなの勤怠に込めた思いを受け止める</h2>
+						<h3>そんな勤怠アプリをFlutterで作る！</h3>
 					</section>
 
 					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
@@ -874,8 +896,11 @@
 								<ul>
 									<li>本家は有給申請とかいろいろできる！</li>
 								</ul>
-								<li>ログイン、出勤、退勤のHTTPリクエストをHRMOSサーバーに送る</li>
 								<li>アプリにログイン情報埋め込んで起動時に毎回ログイン</li>
+								<li>ログイン、出勤、退勤のHTTPリクエストをHRMOSサーバーに送る</li>
+								<ul>
+									<li>APIを公開してるわけではなく開発者だから知ってる内部的なAPIを叩いてます</li>
+								</ul>
 							</ul>
 						</ul>
 					</section>
@@ -947,7 +972,7 @@
 						</ul>
 						<pre><code data-trim data-noescape class="dart">
 							new Positioned(
-								top: animation.value * 200.0,
+								top: animation.value * 200.0, // 0から200の間の値を変化
 								child: new Text('上から下に動くぞ！')
 							);
 						</code></pre>
@@ -1007,11 +1032,20 @@
 					<section data-background="image/app-come-to-work.gif" data-background-size="contain">
 					</section>
 
+					<section data-state="dimbg" data-background="image/app-come-to-work.gif" data-background-size="contain">
+						<h3>出勤のしがいがある！</h3>
+					</section>
+
 					<section data-background="image/app-go-home.gif" data-background-size="contain">
 					</section>
 
+					<section data-state="dimbg" data-background="image/app-go-home.gif" data-background-size="contain">
+						<h3>一日の疲れをねぎらってくれる！</h3>
+					</section>
+
 					<section data-background-transition="zoom" data-background-image="image/flutter-mark.png" data-background-color="white">
-						<h3 style="color: black;">ユーザーの気持ちに寄り添う最強の勤怠アプリが完成した</h3>
+						<h2 style="color: black;">ユーザーの気持ちに寄り添う最強の勤怠アプリが完成した</h2>
+						<h4 style="color: black;">アプリ開発にはいろいろなセンスが必要 &#x1F607;</h4>
 					</section>
 
 				</section>
@@ -1045,8 +1079,8 @@
 					</section>
 
 					<section data-background-transition="zoom" data-background-image="image/dart_bird.png" data-background-color="white">
-						<h3 style="color: black;">Dart, Flutterともにとても良いと思います</h3>
-						<h3 style="color: black;">Googleさんオナシャス &#x1F62D;</h3>
+						<h2 style="color: black;">Dart, Flutterともにとても良いと思います</h2>
+						<h1 style="color: black;">Googleさんオナシャス &#x1F62D;</h1>
 					</section>
 
 					<section data-background-transition="zoom" data-background-image="image/dart_bird.png" data-background-color="white">
