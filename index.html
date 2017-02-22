@@ -94,6 +94,23 @@
 					<section data-state="dimbg"
 						data-background-image="https://pub.dartlang.org/static/img/dart-logo-400x400.png"
 						data-background-size="auto 80%">
+						<h2>触ってみた感触としては</h2>
+						<ul>
+							<li>みためはジャバ</li>
+							<li>async/await, 強いclass周りのサポート</li>
+							<li>パッケージマネージャー、IDEサポートの充実</li>
+							<li>"ちょうどいい"言語</li>
+							<ul>
+								<li>Javaのレガシーさを取り除いている</li>
+								<li>Goほど記述量は多くない</li>
+								<li>Scalaほど難しくない</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="https://pub.dartlang.org/static/img/dart-logo-400x400.png"
+						data-background-size="auto 80%">
 						<h2>歴史</h2>
 						<ul>
 							<li>当初はブラウザ上で動作し、JavaScriptを置き換える目的</li>
@@ -191,7 +208,7 @@
 						</ul>
 					</section>
 
-					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
 						<h1 style="color: black;">Dartの未来は<br /><b>明るいぜよ！！</b></h1>
 					</section>
 				</section>
@@ -266,12 +283,12 @@
 						</ul>
 					</section>
 
-					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
 						<h2 style="color: black;">Dart Padですぐ始められる！</h2>
 						<h2 style="color: black;">IntelliJ pluginもある！</h2>
 					</section>
 
-					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
 						<h2 style="color: black;">あなたとDart</h2>
 						<h2 style="color: black;">いますぐダウンロー</h2>
 						<h2 style="color: black;">ド &#x1F4AA;</h2>
@@ -295,7 +312,7 @@
 
 					<section>
 						<h3>DOM API</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=d9b8d55e00731e1f3deee24fb6df31a2' class="code"></iframe>
+						<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=9c3d87970fb4ff1f0aa8a6d312c0d031' class="code"></iframe>
 					</section>
 
 					<section>
@@ -321,7 +338,7 @@
 						<a href="https://www.dartlang.org/guides/language/language-tour">https://www.dartlang.org/guides/language/language-tour</a>
 					</section>
 
-					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
 						<h2 style="color: black;">馴染みのある構文</h2>
 						<h2 style="color: black;">必要十分な機能</h2>
 						<h3 style="color: black;">今から書ける、それがDart &#x1F4AA;</h3>
@@ -356,6 +373,7 @@
 							<ul>
 								<li>コンポーネントの木構造を宣言的に定義</li>
 								<li>StatlessWidget, StatefulWidget, setState</li>
+								<li>React/Fluxやってれば大体そういう感じ</li>
 							</ul>
 						</ul>
 					</section>
@@ -440,21 +458,12 @@
 					<section data-state="dimbg"
 						data-background-image="image/flutter-mark.png"
 						data-background-size="auto 80%">
-						<h3>その他の便利サブコマンド（一部）</h3>
-						<ul>
-							<li>test</li>
-							<ul>
-								<li>ユニットテストの実行</li>
-							</ul>
-							<li>devices</li>
-							<ul>
-								<li>シミュレータやUSB接続したデバイスのリストを表示する</li>
-							</ul>
-							<li>install</li>
-							<ul>
-								<li>デバイスにFlutterアプリをインストールする</li>
-							</ul>
-						</ul>
+						<h3>実機へのインストールも簡単 &#x1F60D;</h3>
+						<pre><code data-trim data-noescape class="sh">
+							$ flutter build apk # flutter build ios でiOSビルド(MacOSのみ)
+							$ flutter install
+						</code></pre>
+						<p>小さなアプリでビルド20秒、インストール10秒 &#x1F680</p>
 					</section>
 
 					<section data-state="dimbg"
@@ -470,7 +479,19 @@
 						<p class="fragment">webpackに慣れすぎて↑が無設定で動くことに感動 &#x1F62D;</p>
 					</section>
 
-					<section data-background-transition="zoom" data-background-image="http://4.bp.blogspot.com/-hT-S4k0NMwg/VRR_fM4j6sI/AAAAAAAADNA/aVpIu2HSq9Y/s1600/dart_bird.png">
+					<section>
+						<h2>公式のexamplesがすごい</h2>
+						<ul>
+							<li><a href="https://github.com/flutter/flutter/tree/master/examples">https://github.com/flutter/flutter/tree/master/examples</a></li>
+							<li>Flutter-materialで用意されているWidgetが一通りありそう</li>
+							<li>flutter installして実機で触れる</li>
+						</ul>
+					</section>
+
+					<section data-background="image/flutter-gallery-02.gif" data-background-size="contain">
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
 						<h3 style="color: black;">まだgit cloneはアレだけど...</h3>
 						<h3 style="color: black;">便利なCLIが用意されている！</h3>
 						<h3 style="color: black;">IDEの連携もあり開発・デバッグが非常に楽！</h3>
@@ -490,23 +511,508 @@
 					<section>
 						<h2>プロジェクト構成</h2>
 						<pre><code data-trim data-noescape>
-							$ flutter
-							Available commands:
-								analyze      Analyze the projects Dart code.
-								build        Flutter build commands.
-								devices      List all connected devices.
-								doctor       Show information about the installed tooling.
-								install      Install a Flutter app on an attached device.
-								screenshot   Take a screenshot from a connected device.
-								stop         Stop your Flutter app on an attached device.
-								test         Run Flutter unit tests for the current project.
+							$ flutter create my-flutter-app
+							my-flutter-app
+							├── android
+							├── ios
+							├── lib # libの中にコードを書いていく
+							│   └── main.dart
+							└── pubspec.yaml # package.jsonとかpom.xmlみたいなの
 						</code></pre>
+					</section>
+
+					<section>
+						<h2>Flutter アプリ最小構成</h2>
+						<pre><code data-trim data-noescape class="dart">
+							// lib/main.dart
+							import 'package:flutter/material.dart';
+
+							void main() {
+								runApp(
+									new Center(
+										child: new Text('Hello, Flutter!')
+									)
+								);
+							}
+						</code></pre>
+						<ul>
+							<li>エントリーポイントはlib/main.dartのmain関数</li>
+							<li>runApp関数にWidgetのインスタンスを渡す</li>
+							<li>Widgetは子(child/children)を持ち、Widgetの木構造を宣言的に記述する</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Widget</h2>
+						<ul>
+							<li>ReactでいうComponent</li>
+							<li>コンポーネント化されたUI部品</li>
+							<li>StatelessWidget, StatefulWidgetがある</li>
+							<li>親から子へデータを渡す</li>
+							<ul>
+								<li>子Widgetのコンストラクタに引数として</li>
+								<li>Reactならprops</li>
+							</ul>
+							<li>子から親はコールバック関数</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>更新と差分反映</h2>
+						<ul>
+							<li>Flutterはユーザーの操作などでデータの変更があった場合、関係するWidgetのみbuildを再実行する</li>
+							<li>Reactと同じで富豪的、宣言的にUIを書きつつ動作速度を落とさない</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>StatelessWidget</h2>
+						<ul>
+							<li>StatelessWidgetを継承したクラスにbuildメソッドをoverrideする</li>
+							<li>React.Componentと同じですね &#x1F607;</li>
+						</ul>
+						<pre><code data-trim data-noescape class="dart">
+							class HelloWorld extends StatelessWidget {
+								// コンストラクタ
+								// {}の中は名前付き引数 new HelloWorld(name: 'foo');
+								HelloWorld({Key key, this.name}): super(key: key);
+								final String name;
+
+								// buildメソッドをoverrideする
+								@override
+								Widget build(BuildContext context) {
+									return new Text('Hello, $name!');
+								}
+							}
+						</code></pre>
+					</section>
+
+					<section data-background="image/flutter-reload.gif" data-background-size="contain">
+					</section>
+
+					<section>
+						<h2>StatefulWidget</h2>
+						<ul>
+							<li>状態を持つWidgetを作ることができる</li>
+							<li>StatefulWidgetクラスとState&lt;T&gt;クラスをつかう</li>
+							<li>Reactではpropsとstateを同じComonentが持つが、それを分けたイメージ</li>
+						</ul>
+						<p>間違っとったらスマン！！ &#x1F633;</p>
+						<p>マサカリポイント！！！ &#x1F528;</p>
+					</section>
+
+					<section data-state="dimbg" data-background="image/flutter-state-sample-01.gif" data-background-size="contain">
+						<h2>サンプル</h2>
+						<p>Counter Widget</p>
+						<ul>
+							<li>親WidgetからTitleを受け取る</li>
+							<li>状態としてカウンターを持つ</li>
+							<li>ボタンを押したらカウンターを1増やす</li>
+						</ul>
+					</section>
+
+					<section data-background="image/flutter-state-sample-01.gif" data-background-size="contain">
+					</section>
+
+					<section>
+						<h2>StatefulWidget</h2>
+						<ul>
+							<li>StatefulWidgetを継承したクラスにcreateStateメソッドをoverrideする</li>
+							<ul>
+								<li>buildメソッドを実装するのは_CounterStateクラス</li>
+							</ul>
+						</ul>
+						<pre><code data-trim data-noescape class="dart">
+							class Counter extends StatefulWidget {
+								Counter({Key key, this.title}) : super(key: key);
+
+								final String title;
+
+								@override
+								_CounterState createState() => new _CounterState();
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>StatefulWidget</h2>
+						<ul>
+							<li>コンストラクタの引数からデータを受け取ることができる</li>
+							<li>そのデータはStateクラスからも取得できるが、Stateの中からは更新しない</li>
+							<li>ReactでいうPropsやね！</li>
+						</ul>
+						<pre><code data-trim data-noescape class="dart">
+							class Counter extends StatefulWidget {
+								Counter({Key key, this.title}) : super(key: key);
+
+								final String title;
+
+								@override
+								_CounterState createState() => new _CounterState();
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>State&lt;T&gt;</h2>
+						<ul>
+							<li>StatefulWidgetを継承したクラスを型パラメータに取る</li>
+							<li>buildメソッドをoverrideする</li>
+						</ul>
+						<pre><code data-trim data-noescape class="dart">
+							class Counter extends StatefulWidget {
+								...
+
+								@override
+								_CounterState createState() => new _CounterState();
+							}
+
+							class _CounterState extends State&lt;Counter&gt; {
+								...
+
+								@override
+								Widget build(BuildContext context) {
+									return new ...;
+								}
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>State&lt;T&gt;</h2>
+						<ul>
+							<li>this.configが&lt;T&gt;の型になりアクセスできる</li>
+						</ul>
+						<pre><code data-trim data-noescape class="dart">
+							class Counter extends StatefulWidget {
+								...
+								final String title;
+								...
+							}
+
+							class _CounterState extends State&lt;Counter&gt; {
+								...
+
+								@override
+								Widget build(BuildContext context) {
+									return new Text(this.config.title); // I am Counter
+								}
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>State&lt;T&gt;</h2>
+						<ul>
+							<li>setStateメソッドのなかで自身のメンバ変数を変更する</li>
+						</ul>
+						<pre><code data-trim data-noescape class="dart">
+							class _CounterState extends State&lt;Counter&gt; {
+  							int _counter = 0;
+
+								void _incrementCounter() {
+									setState(() => _counter++);
+								}
+
+								@override
+								Widget build(BuildContext context) {
+									return new ...
+										new FloatingActionButton(onPressed: _incrementCounter, ...)
+									);
+								}
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>コード全体</h2>
+						<pre><code data-trim data-noescape class="dart" style="height: 100vh; max-height: 100vh">
+							import 'package:flutter/material.dart';
+
+							void main() {
+								runApp(new MaterialApp(
+									home: new Counter(title: 'I am Counter'),
+								));
+							}
+
+							class Counter extends StatefulWidget {
+								Counter({Key key, this.title}) : super(key: key);
+
+								final String title;
+
+								@override
+								_CounterState createState() => new _CounterState();
+							}
+
+							class _CounterState extends State&lt;Counter&gt; {
+								int _counter = 0;
+
+								void _incrementCounter() {
+									setState(() {
+										_counter++;
+									});
+								}
+
+								@override
+								Widget build(BuildContext context) {
+									return new Scaffold(
+										body: new Center(
+											child: new Column(
+												children: <Widget>[
+													new Text(this.config.title),
+													new Text('Button tapped $_counter time${ _counter == 1 ? '' : 's' }.')
+												],
+												mainAxisAlignment: MainAxisAlignment.center
+											)
+										),
+										floatingActionButton: new FloatingActionButton(
+											onPressed: _incrementCounter,
+											tooltip: 'Increment',
+											child: new Icon(Icons.add),
+										)
+									);
+								}
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<table>
+							<caption>Reactとの比較</caption>
+							<thead>
+							<tr>
+								<th>React</th>
+								<th>Flutter</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Component#props</td>
+									<td>StatefulWidgetのメンバ変数、State&lt;T&gt;のthis.config</td>
+								</tr>
+								<tr>
+									<td>Component#state</td>
+									<td>State&lt;T&gt;のメンバ変数</td>
+								</tr>
+								<tr>
+									<td>Component#setState</td>
+									<td>State#setState</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<table>
+							<caption>ライフサイクルメソッド</caption>
+							<thead>
+							<tr>
+								<th>React.Component</th>
+								<th>Flutter.Widget</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>componentDidMount <br />componentWillReceiveProps <br /> componentWillUnmount <br />など</td>
+									<td>initState <br /> didUpdateConfig <br /> dispose <br />など</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="/image/flutter-mark.png" data-background-color="white">
+						<h3 style="color: black;">React/Fluxインスパイア</h3>
+						<h3 style="color: black;">Rectやってれば移行は容易そう</h3>
+						<h3 style="color: black;"><s>ReactNativeでよいのでは &#x1F607;</s></h3>
 					</section>
 
 				</section>
 
 				<section>
-					TODO: 最強の勤怠アプリを作った話
+
+					<section>
+						<h1>最強の勤怠アプリを作った話</h1>
+					</section>
+
+					<section>
+						<h2>ここからはおまけみたいなもんです &#x1f602;</h2>
+					</section>
+
+					<section data-state="dimbg" data-background="./image/hrmos-kintai.png">
+						<h2>現在HRMOS勤怠管理というプロダクトを作っています</h2>
+					</section>
+
+					<section>
+						<h2>しかしそのアプリには一つ問題があった...</h2>
+						<p><b>私の個人的な意見です</b></p>
+						<p>出勤・退勤画面を御覧ください</p>
+					</section>
+
+					<section data-background="image/problematic-product.gif" data-background-size="contain">
+					</section>
+
+					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
+						<h2>そっけない</h2>
+						<ul>
+							<li>みんないろいろな思いを抱えて出勤・退勤しているはず</li>
+							<ul>
+								<li>「めちゃ疲れてるけど今日も仕事頑張るぞ…！」</li>
+								<li>「今日も俺よく働いた！えらい！」</li>
+								<li><s>「3時までゲームしてたから超眠いけどなんとか出勤できた」</s></li>
+							</ul>
+						</ul>
+					</section>
+
+					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
+						<h3>そんなみんなの思いを受け止める勤怠アプリをFlutterで作る！</h3>
+					</section>
+
+					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
+						<h3>設計</h3>
+						<ul>
+							<li>自分用、雑に作る</li>
+							<ul>
+								<li>ログイン、出勤、退勤のHTTPリクエストをHRMOSサーバーに送る</li>
+								<li>アプリにログイン情報埋め込んで起動時に毎回ログイン</li>
+								<li>出勤・退勤以外の機能はひとまずいらない</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section>
+						<h2>HTTPのやり取りする処理を作る</h2>
+					</section>
+
+					<section>
+						<pre><code data-trim data-noescape class="dart" style="height: 100vh; max-height: 90vh">
+							import 'package:flutter/http.dart' as http;
+
+							Future&lt;bool&gt; signin() async {
+								var client = new http.Client();
+
+								var headers = new Map()
+									..['Content-Type'] = 'application/json';
+
+								var body = new Map()
+									..['secret1'] = 'secretなデータが'
+									..['secret2'] = 'いろいろありますね';
+								
+								var response = await client.post(
+									'https://example.com/',
+									headers: headers,
+									body: JSON.encode(body)
+								);
+
+								// responseをよしなに処理
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>ログイン・出勤・退勤処理はできた</h3>
+					</section>
+
+					<section>
+						<h3>Httpクライントの注意点</h3>
+						<p>Universalなhttpクライアントがない</p>
+						<dl>
+							<dt>dart:io</dt>
+							<dd>サーバーサイドDartVM向け</dd>
+							<dt>package:http</dt>
+							<dd>サーバーサイド向けClientとブラウザ上向けBrowserClient</dd>
+							<dt>package:flutter/http.dart</dt>
+							<dd>flutter向け</dd>
+						</dl>
+						<p><a href="https://github.com/dart-lang/http/issues/1">dart-lang/http</a>にIssueがあり、コメントによると4月には解決する？</p>
+					</section>
+
+					<section>
+						<h2>アニメーション</h2>
+						<p>出勤・退勤時にアニメーションしてユーザーの気持ちを受け止めたい</p>
+					</section>
+
+					<section>
+						<p>Animation&lt;T&gt;とAnimationControllerを使う</p>
+					</section>
+
+					<section>
+						<h3>Animation&lt;T&gt;</h3>
+						<ul>
+							<li>変化する&lt;T&gt;の値を持つクラス</li>
+							<li>その値をアニメーションに使う</li>
+							<ul>
+								<li>例: Animation&lt;double&gt;の値をWidgetの表示位置に使ってアニメーションする</li>
+							</ul>
+						</ul>
+						<pre><code data-trim data-noescape class="dart">
+							new Positioned(
+								top: animation.value * 200.0,
+								child: new Text('上から下に動くぞ！')
+							);
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>AnimationController</h3>
+						<ul>
+							<li>Animationの値の変化と管理する</li>
+							<ul>
+								<li>例: ボタンのonPressイベントでAnimationController#stopメソッドを実行してAnimationの値の変化を停止</li>
+							</ul>
+						</ul>
+						<pre><code data-trim data-noescape class="dart">
+							new FloatingActionButton(
+								child: new Text('押すと止まる'),
+								onPressed: () => _animationController.stop(),
+							);
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>だいたいこうなる</h3>
+						<pre><code data-trim data-noescape class="dart" style="height: 90vh; max-height: 90vh">
+							// 2秒間にAnimationの値を初期値から終了値まで変化させる
+							// AnimationControllerをつくり、forwardメソッドで開始する
+							_controller = new AnimationController(
+								duration: const Duration(milliseconds: 2000),
+								vsync: this,
+							)..forward();
+
+							// fastOutSlowInな値の変化を0.0から1.0まで持つAnimation
+							_animation = new CurvedAnimation(
+								parent: _controller,
+								curve: new Interval(0.0, 1.0, curve: Curves.fastOutSlowIn)
+							);
+
+							// 子コンポーネントの不透明度を設定できるOpacity Widgetに
+							// Textを入れて、不透明度の値opacityをAnimationクラスから取得する
+							new Opacity(
+								child: new Text('透明から徐々に見えるようになるぞ！'),
+								opacity: _animation.value
+							)
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>アニメーションできた</h3>
+						<p>exampleにアニメーションのサンプルがあった &#x1F602;</p>
+						<p>公式ドキュメントだけじゃ実装できなかった</p>
+					</section>
+
+					<section>
+						<h2>そして最強の勤怠アプリが完成した</h2>
+					</section>
+
+					<section data-background="image/app-come-to-work.gif" data-background-size="contain">
+					</section>
+
+					<section data-background="image/app-go-home.gif" data-background-size="contain">
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="/image/flutter-mark.png" data-background-color="white">
+						<h3 style="color: black;">ユーザーの気持ちに寄り添う最強の勤怠アプリが完成した</h3>
+					</section>
+
 				</section>
 
 				<section>
@@ -528,7 +1034,13 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+						hljs.configure({
+							tabReplace: '  ' // 2 spaces
+						})
+						hljs.initHighlightingOnLoad();
+						}
+					}
 				]
 			});
 		</script>
