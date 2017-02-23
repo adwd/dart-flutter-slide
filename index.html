@@ -358,32 +358,53 @@
 					<section data-state="dimbg"
 						data-background-image="image/flutter-mark.png"
 						data-background-size="auto 80%">
-						<h3>Flutter</h3>
-						　<ul>
-							<li>現在まだ早期プレビュー段階</li>
-							<li>Android/iOSで動作するハイパフォーマンスなモバイルアプリを作るフレームワーク</li>
-							<li>アプリケーションはWebViewとかじゃなくてネイティブコードにAOTコンパイルされる</li>
+						<h3>Flutterのコンセプト</h3>
+					　<ul>
+							<li>高い生産性</li>
+							<li>高いパフォーマンス</li>
+							<li>クロスプラットフォーム(Android/iOS)</li>
 						</ul>
 					</section>
 
 					<section data-state="dimbg"
 						data-background-image="image/flutter-mark.png"
 						data-background-size="auto 80%">
-						<h3>Flutterのランタイム</h3>
-						<p>
-							FlutterエンジンのC++コードは(Android: Android NDK, iOS: LLVM)でコンパイルされ、
-							DartのコードはDartコンパイラでネイティブコードにAOTコンパイルされる。（インタプリタを介さない）
-						</p>
+						<h3>高い生産性</h3>
+					　<ul>
+							<li>Dart言語の生産性</li>
+							<li>関数型リアクティブフレームワーク</li>
+							<li>Material DesignのUIライブラリ</li>
+						</ul>
 					</section>
 
 					<section data-state="dimbg"
 						data-background-image="image/flutter-mark.png"
 						data-background-size="auto 80%">
-						<h3>Flutter</h3>
+						<h3>高いパフォーマンス</h3>
+					　<ul>
+							<li>モバイルの2D表示に特化して最適化されたレンダリングエンジン</li>
+							<li>WebViewなどを使用せずすべてネイティブ</li>
+							<ul>
+								<li>FlutterエンジンのC++コードは(Android: Android NDK, iOS: LLVM)でコンパイル</li>
+								<li>DartのコードはDartコンパイラでネイティブコードにAOTコンパイル</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>クロスプラットフォーム(Android/iOS)</h3>
+					</section>
+
+					<section data-state="dimbg"
+						data-background-image="image/flutter-mark.png"
+						data-background-size="auto 80%">
+						<h3>関数型でリアクティブ</h3>
 						　<ul>
 							<li>React/Fluxにインスパイアされたコンポーネント指向、状態管理、単方向データフロー</li>
 							<ul>
-								<li>コンポーネントの木構造を宣言的に定義</li>
+								<li>コンポーネントの木構造を宣言的に記述</li>
 								<li>StatlessWidget, StatefulWidget, setState</li>
 								<li>React/Fluxやってれば大体そういう感じ</li>
 								<li>
@@ -1116,7 +1137,7 @@
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				history: false,
+				history: true,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
