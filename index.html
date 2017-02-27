@@ -67,7 +67,7 @@
 							<li>おまけです &#x1f602;</li>
 						</ul>
 					</ul>
-					<p>資料を見てる人向け: スライドを↓に進めるのを多用してます</p>
+					<p><small>資料を見てる人向け: スライドを↓に進めるのを多用してます</small></p>
 				</section>
 
 				<section
@@ -84,10 +84,9 @@
 						<h2>Dartってどんな言語？</h2>
 						<ul>
 							<li>2011年にGoogleが発表</li>
-							<li>基本的に動的型付け言語</li>
+							<li>Java、JSに似たシンタックスの動的型付け言語</li>
 							<ul>
 								<li>JITコンパイルされ、DartVM上で動作する</li>
-								<li>Optional Types: 型を付けて型検査のメリットも享受できる</li>
 								<li>dart2jsでJSに変換できるのでブラウザでも動く</li>
 							</ul>
 							<li>ECMA-408で標準化されている</li>
@@ -99,7 +98,8 @@
 						data-background-size="auto 80%">
 						<h2>触ってみた感触としては</h2>
 						<ul>
-							<li>見た目はJavaによく似ている</li>
+							<li>Java,JS等がかければすんなり書ける</li>
+							<li>型を書いても書かなくてもいい &#x1F633;</li>
 							<li>async/await, class周りのサポート</li>
 							<li>パッケージマネージャー、IDEサポートの充実</li>
 							<li>"ちょうどいい"言語</li>
@@ -134,7 +134,7 @@
 					<section data-state="dimbg"
 						data-background-image="image/dart-logo-400x400.png"
 						data-background-size="auto 80%">
-						<h2>Dart復権の兆し？</h2>
+						<h2>2016年、Dart復権の兆し？</h2>
 						<ul>
 							<li>2016年にGoogle社内で一番書かれたプログラミング言語はDart</li>
 							<li>書きやすさと動作速度からRubyに代わってSassの実装に採用される</li>
@@ -170,6 +170,9 @@
 						<h3>Angular Dart</h3>
 						<ul>
 							<li>Angular2からそれまでJS/TSと共通だったコードベースを分離</li>
+							<ul>
+								<li><a href="https://github.com/dart-lang/angular2">https://github.com/dart-lang/angular2</a></li>
+							</ul>
 							<li>専任のAngularDartチームができた</li>
 							<li>よりDartの機能を活かし、自然な構文、高速に</li>
 							<li><s>早速GitHubの最終更新日が2週間前</s></li>
@@ -188,7 +191,7 @@
 							</ul>
 							<li>Strong mode</li>
 							<ul>
-								<li>Dartの言語標準より厳しいチェック</li>
+								<li>Dartの言語標準より厳しいチェックで実行時エラーを減らす</li>
 							</ul>
 						</ul>
 					</section>
@@ -1219,7 +1222,7 @@
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				history: true,
+				history: false,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
