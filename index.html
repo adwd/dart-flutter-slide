@@ -88,8 +88,8 @@
 							<ul>
 								<li>JITコンパイルされ、DartVM上で動作する</li>
 								<li>Optional Types: 型を付けて型検査のメリットも享受できる</li>
+								<li>dart2jsでJSに変換できるのでブラウザでも動く</li>
 							</ul>
-							<li>dart2jsでJSに変換できるのでブラウザでも動く</li>
 							<li>ECMA-408で標準化されている</li>
 						</ul>
 					</section>
@@ -99,8 +99,8 @@
 						data-background-size="auto 80%">
 						<h2>触ってみた感触としては</h2>
 						<ul>
-							<li>みためはジャバ</li>
-							<li>async/await, 強いclass周りのサポート</li>
+							<li>見た目はJavaによく似ている</li>
+							<li>async/await, class周りのサポート</li>
 							<li>パッケージマネージャー、IDEサポートの充実</li>
 							<li>"ちょうどいい"言語</li>
 							<ul>
@@ -182,7 +182,14 @@
 						<h3>DDC(Dart Dev Compiler)</h3>
 						<ul>
 							<li>静的チェックを行い可読性の高いES2015を吐くコンパイラ</li>
+							<ul>
+								<li>dart2jsが吐くjsを人が読むのはキツい</li>
+								<li>静的チェックの情報をjsへのコンパイルに使う</li>
+							</ul>
 							<li>Strong mode</li>
+							<ul>
+								<li>Dartの言語標準より厳しいチェック</li>
+							</ul>
 						</ul>
 					</section>
 
@@ -191,9 +198,14 @@
 						data-background-size="auto 80%">
 						<h3>Flutter</h3>
 						<ul>
-							<li>Android/iOSで動作するハイパフォーマンスなモバイルアプリを作るフレームワーク</li>
-							<li>アプリケーションはWebViewとかじゃなくてネイティブコードにAOTコンパイルされる</li>
-							<li>React/Fluxにインスパイアされたコンポーネント指向、状態管理、単方向データフロー</li>
+							<li>Dartでモバイルアプリを書くフレームワーク</li>
+							<li>コンセプト</li>
+							<ul>
+								<li>高い生産性</li>
+								<li>ハイパフォーマンス</li>
+								<li>クロスプラットフォーム(Android/iOS)</li>
+							</ul>
+							<li>詳しくは後述</li>
 						</ul>
 					</section>
 
@@ -328,6 +340,11 @@
 					</section>
 
 					<section>
+						<h3>Stream</h3>
+						<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=e098bc76d6df8a029a9942f8a1fa13b8' class="code"></iframe>
+					</section>
+
+					<section>
 						<h3>ほかにもいろいろ</h3>
 						<ul>
 							<li>final, const</li>
@@ -361,7 +378,7 @@
 						<h3>Flutterのコンセプト</h3>
 					　<ul>
 							<li>高い生産性</li>
-							<li>高いパフォーマンス</li>
+							<li>ハイパフォーマンス</li>
 							<li>クロスプラットフォーム(Android/iOS)</li>
 						</ul>
 					</section>
@@ -380,7 +397,7 @@
 					<section data-state="dimbg"
 						data-background-image="image/flutter-mark.png"
 						data-background-size="auto 80%">
-						<h3>高いパフォーマンス</h3>
+						<h3>ハイパフォーマンス</h3>
 					　<ul>
 							<li>モバイルの2D表示に特化して最適化されたレンダリングエンジン</li>
 							<li>WebViewなどを使用せずすべてネイティブ</li>
@@ -414,6 +431,11 @@
 								</li>
 							</ul>
 						</ul>
+					</section>
+
+					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
+						<h3 style="color: black;">言語ごと廃れる可能性を除けば</h3>
+						<h2 style="color: black;">理想的なフレームワーク</h2>
 					</section>
 
 				</section>
@@ -462,18 +484,18 @@
 						data-background-size="auto 80%">
 						<h3>flutter create</h3>
 						<pre><code data-trim data-noescape class="sh">
-							$ flutter create my-flutter-app
-							Creating project my-flutter-app...
+							$ flutter create my-app
+							Creating project my-app...
 							Wrote 59 files.
 
 							...
 
 							All done! In order to run your application, type:
 
-								$ cd my-flutter-app
+								$ cd my-app
 								$ flutter run
 
-							Your main program file is lib/main.dart in the my-flutter-app directory.
+							Your main program file is lib/main.dart in the my-app directory.
 						</code></pre>
 					</section>
 
@@ -482,7 +504,7 @@
 						data-background-size="auto 80%">
 						<h3>flutter run</h3>
 						<pre><code data-trim data-noescape class="sh">
-							$ cd my-flutter-app
+							$ cd my-app
 							$ open -a Simulator # iOSシミュレータを起動
 							$ flutter run
 						</code></pre>
@@ -551,8 +573,8 @@
 					<section>
 						<h2>プロジェクト構成</h2>
 						<pre><code data-trim data-noescape>
-							$ flutter create my-flutter-app
-							my-flutter-app
+							$ flutter create my-app
+							my-app
 							├── android
 							├── ios
 							├── lib # libの中にコードを書いていく
@@ -635,10 +657,47 @@
 						<ul>
 							<li>状態を持つWidgetを作ることができる</li>
 							<li>StatefulWidgetクラスとState&lt;T&gt;クラスをつかう</li>
-							<li>Reactではpropsとstateを同じComonentが持つが、それを分けたイメージ</li>
 						</ul>
 						<p>間違っとったらスマン！！ &#x1F633;</p>
 						<p>マサカリポイント！！！ &#x1F528;</p>
+					</section>
+
+					<section>
+						<h2>StatefulWidget / State&lt;T&gt;</h2>
+						<pre><code data-trim data-noescape class="dart">
+							class Counter extends StatefulWidget {
+								...
+
+								@override
+								_CounterState createState() => new _CounterState();
+							}
+							
+							class _CounterState extends State&lt;Counter&gt; {
+								...
+
+								@override
+								Widget build(BuildContext context) {
+									return new ...;
+								}
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>StatefulWidget / State&lt;T&gt;</h2>
+						<ul>
+							<li>StatefulWidget</li>
+							<ul>
+								<li>State&lt;T&gt;のインスタンスを持つ</li>
+							</ul>
+							<li>State&lt;T&gt;</li>
+							<ul>
+								<li>TはStatefulWidgetを継承したクラス</li>
+								<li>状態を内部で管理する</li>
+								<li>buildメソッドを持つ</li>
+							</ul>
+						</ul>
+						<p>StatefulWidgetとState&lt;T&gt;の生存期間が違うとかなんとか</p>
 					</section>
 
 					<section data-state="dimbg" data-background="image/flutter-state-sample-01.gif" data-background-size="contain">
@@ -659,7 +718,7 @@
 						<ul>
 							<li>StatefulWidgetを継承したクラスにcreateStateメソッドをoverrideする</li>
 							<ul>
-								<li>buildメソッドを実装するのは_CounterStateクラス</li>
+								<li>createStateの戻り値の型はState&lt;T&gt;を継承したクラス</li>
 							</ul>
 						</ul>
 						<pre><code data-trim data-noescape class="dart">
@@ -744,7 +803,7 @@
 					<section>
 						<h2>State&lt;T&gt;</h2>
 						<ul>
-							<li>setStateメソッドの中で自身のメンバ変数を変更する</li>
+							<li>状態を変更するにはsetStateメソッドの中で自身のメンバ変数を変更する</li>
 						</ul>
 						<pre><code data-trim data-noescape class="dart">
 							class _CounterState extends State&lt;Counter&gt; {
@@ -834,7 +893,7 @@
 								</tr>
 								<tr>
 									<td>Component#setState</td>
-									<td>State#setState</td>
+									<td>State&lt;T&gt;#setState</td>
 								</tr>
 							</tbody>
 						</table>
@@ -883,7 +942,7 @@
 					<section>
 						<h2>しかしそのアプリには問題があった...</h2>
 						<h3>※ 個人的な意見・感想です</h3>
-						<p>出勤・退勤画面を御覧ください</p>
+						<p class="fragment">出勤・退勤画面を御覧ください</p>
 					</section>
 
 					<section data-background="image/problematic-product.gif" data-background-size="contain">
@@ -907,6 +966,10 @@
 					</section>
 
 					<section data-background="image/declined-by-leader.png" data-background-size="contain">
+					</section>
+
+					<section data-background="image/declined-by-leader.png" data-background-size="contain" data-state="dimbg">
+						<h3>たしかに</h3>
 					</section>
 
 					<section data-background="image/declined-by-leader-detail.png" data-background-size="contain" data-state="dimbg">
@@ -976,11 +1039,17 @@
 
 					<section>
 						<h3>ログイン・出勤・退勤処理はできた</h3>
+						<p>Futureが返ってくる普通の使いやすいhttpクライアントがあった</p>
 					</section>
 
 					<section>
 						<h3>Httpクライントの注意点</h3>
 						<p>Universalなhttpクライアントがない</p>
+						<p>どこでも動くDartだから、httpクライアントも当然どこでも動くと思いハマった &#x1F602;</p>
+					</section>
+
+					<section>
+						<h3>プラットフォームごとのhttpクライアント</h3>
 						<dl>
 							<dt>dart:io</dt>
 							<dd>サーバーサイドDartVM向け</dd>
@@ -998,13 +1067,14 @@
 					</section>
 
 					<section>
+						<h3>アニメーションを実装するには</h3>
 						<p>Animation&lt;T&gt;とAnimationControllerを使う</p>
 					</section>
 
 					<section>
 						<h3>Animation&lt;T&gt;</h3>
 						<ul>
-							<li>変化する&lt;T&gt;の値を持つクラス</li>
+							<li>変化する値(型はT)を持つクラス</li>
 							<li>その値をアニメーションに使う</li>
 							<ul>
 								<li>例: Animation&lt;double&gt;の値をWidgetの表示位置に使ってアニメーションする</li>
@@ -1021,7 +1091,7 @@
 					<section>
 						<h3>AnimationController</h3>
 						<ul>
-							<li>Animationの値の変化と管理する</li>
+							<li>Animationの値の変化を管理する</li>
 							<ul>
 								<li>例: ボタンのonPressイベントでAnimationController#stopメソッドを実行してAnimationの値の変化を停止</li>
 							</ul>
@@ -1040,7 +1110,7 @@
 							// 2秒間にAnimationの値を初期値から終了値まで変化させる
 							// AnimationControllerをつくり、forwardメソッドで開始する
 							_controller = new AnimationController(
-								duration: const Duration(milliseconds: 2000),
+								duration: const Duration(seconds: 2),
 								vsync: this,
 							)..forward();
 
@@ -1069,11 +1139,19 @@
 						<h2>そして最強の勤怠アプリが完成した</h2>
 					</section>
 
+					<section>
+						<h3>出勤</h3>
+					</section>
+
 					<section data-background="image/app-come-to-work.gif" data-background-size="contain">
 					</section>
 
 					<section data-state="dimbg" data-background="image/app-come-to-work.gif" data-background-size="contain">
 						<h3>出勤のしがいがある！</h3>
+					</section>
+
+					<section>
+						<h3>退勤</h3>
 					</section>
 
 					<section data-background="image/app-go-home.gif" data-background-size="contain">
@@ -1085,7 +1163,8 @@
 
 					<section data-background-transition="zoom" data-background-image="image/flutter-mark.png" data-background-color="white">
 						<h2 style="color: black;">ユーザーの気持ちに寄り添う最強の勤怠アプリが完成した</h2>
-						<h4 style="color: black;">アプリ開発にはいろいろなセンスが必要 &#x1F607;</h4>
+						<h4 style="color: black;">いろいろすいません</h4>
+						<h4 style="color: black;">アプリ開発にはいろいろなセンスが必要という学びを得た &#x1F607;</h4>
 					</section>
 
 				</section>
