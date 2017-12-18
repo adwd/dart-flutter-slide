@@ -1,15 +1,14 @@
 /* background-image を少し暗くしたいときは data-state="dimbg" をつける */
 .dimbg .slide-background {
-  filter: brightness(.8);
+  filter: brightness(0.8);
 }
 
 /* iframeで dart-pad を差し込んでるやつ */
 iframe.code {
-  height: 95vh;
-  width: 100vw;
-  /*transform: scale(1.1);*/
+  width: 100%;
+  min-height: 600px;
 }
 
 code {
-  font-family: 'Fira Mono', monospace;
+  font-family: "Fira Mono", monospace;
 }

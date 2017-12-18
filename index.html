@@ -1,258 +1,248 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Dart/Flutter入門 + (自分用) 最強の勤怠アプリを作った話</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>Dart/Flutter入門 + (自分用) 最強の勤怠アプリを作った話</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110007667-1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
 
-			gtag('config', 'UA-110007667-1');
-		</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110007667-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-		<script src="https://use.fontawesome.com/04fe0dbf5d.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
-		<link rel="stylesheet" href="css/my.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section
-					data-background-image="image/dart-logo-400x400.png"
-					data-background-size="auto 80%">
-					<h1>Dart/Flutter 入門</h1>
-					<h2>+ 最強の勤怠アプリを作った話</h2>
+		gtag('config', 'UA-110007667-1');
+	</script>
 
-					<p>2017/2/27</p>
+	<script src="https://use.fontawesome.com/04fe0dbf5d.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+	<link rel="stylesheet" href="css/my.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+				<h1>Dart/Flutter 入門</h1>
+				<h2>+ 最強の勤怠アプリを作った話</h2>
+
+				<p>2017/2/27</p>
+			</section>
+
+			<section>
+				<h2>自己紹介</h2>
+				<ul>
+					<li>西田雅博</li>
+					<li>
+						<a href="https://github.com/adwd">github.com/adwd</a>
+					</li>
+					<li>株式会社ビズリーチ HRMOS事業部</li>
+					<li>人事戦略クラウドサービス
+						<a href="https://hrmos.co/">HRMOS</a> 作ってます</li>
+					<li>Scala/React書いてます</li>
+				</ul>
+				<img src="https://github.com/adwd.png" />
+			</section>
+
+			<section>
+				<section data-background="image/hrmos.png">
 				</section>
 
-				<section>
-					<h2>自己紹介</h2>
+				<section data-background="image/hrmos-kintai.png">
+				</section>
+			</section>
+
+			<section>
+				<h2>今日の内容</h2>
+				<ul>
+					<li>Dart</li>
+					<li>Flutter</li>
+					<li>Flutterを作って最強の勤怠アプリを作った話</li>
 					<ul>
-						<li>西田雅博</li>
-						<li><a href="https://github.com/adwd">github.com/adwd</a></li>
-						<li>株式会社ビズリーチ HRMOS事業部</li>
-						<li>人事戦略クラウドサービス <a href="https://hrmos.co/">HRMOS</a> 作ってます</li>
-						<li>Scala/React書いてます</li>
+						<li>おまけです &#x1f602;</li>
 					</ul>
-					<img src="https://github.com/adwd.png" />
-				</section>
+				</ul>
+				<p>
+					<small>資料を見てる人向け: スライドを↓に進めるのを多用してます</small>
+				</p>
+			</section>
 
-				<section>
-					<section data-background="image/hrmos.png">
-					</section>
+			<section data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+				<h1>Dart</h1>
+			</section>
 
-					<section data-background="image/hrmos-kintai.png">
-					</section>
-				</section>
+			<section>
 
-				<section>
-					<h2>今日の内容</h2>
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h2>Dartってどんな言語？</h2>
 					<ul>
-						<li>Dart</li>
-						<li>Flutter</li>
-						<li>Flutterを作って最強の勤怠アプリを作った話</li>
+						<li>2011年にGoogleが発表</li>
+						<li>Java、JSに似たシンタックスの動的型付け言語</li>
 						<ul>
-							<li>おまけです &#x1f602;</li>
+							<li>JITコンパイルされ、DartVM上で動作する</li>
+							<li>dart2jsでJSに変換できるのでブラウザでも動く</li>
+						</ul>
+						<li>ECMA-408で標準化されている</li>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h2>触ってみた感触としては</h2>
+					<ul>
+						<li>Java,JS等がかければすんなり書ける</li>
+						<li>型を書いても書かなくてもいい &#x1F633;</li>
+						<li>async/await, class周りのサポート</li>
+						<li>パッケージマネージャー、IDEサポートの充実</li>
+						<li>"ちょうどいい"言語</li>
+						<ul>
+							<li>Javaのレガシーさを取り除いている</li>
+							<li>Goほど記述量は多くない</li>
+							<li>Scalaほど難しくない</li>
 						</ul>
 					</ul>
-					<p><small>資料を見てる人向け: スライドを↓に進めるのを多用してます</small></p>
 				</section>
 
-				<section
-					data-background-image="image/dart-logo-400x400.png"
-					data-background-size="auto 80%">
-					<h1>Dart</h1>
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h2>歴史</h2>
+					<ul>
+						<li>当初はブラウザ上で動作し、JavaScriptを置き換える目的</li>
+						<ul>
+							<li>各ブラウザがDartVMを搭載する必要がある &#x1f628;</li>
+							<li>やっぱりそれは無理なのであきらめた</li>
+							<li>(dart2jsでJSに変換して動かすことはできる)</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h3>それから時は流れ…</h3>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h2>2016年、Dart復権の兆し？</h2>
+					<ul>
+						<li>2016年にGoogle社内で一番書かれたプログラミング言語はDart</li>
+						<li>書きやすさと動作速度からRubyに代わってSassの実装に採用される</li>
+						<li>大きな収益を持つGoogle AdSense/AdWordsのフロントエンドがAngular Dartで書き換えられる</li>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h3>少なくともGoogleは本気っぽい？</h3>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h3>これからのDart</h3>
+					<ul>
+						<li>現在活発な主なプロジェクト</li>
+						<ul>
+							<li>Angular Dart</li>
+							<li>DDC(Dart Dev Compiler)</li>
+							<li>Flutter</li>
+							<li>Fuchsia</li>
+						</ul>
+					</ul>
+					<p>
+						<b>あくまで「現時点の情報では」です！</b>
+					</p>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h3>Angular Dart</h3>
+					<ul>
+						<li>Angular2からそれまでJS/TSと共通だったコードベースを分離</li>
+						<ul>
+							<li>
+								<a href="https://github.com/dart-lang/angular2">https://github.com/dart-lang/angular2</a>
+							</li>
+						</ul>
+						<li>専任のAngularDartチームができた</li>
+						<li>よりDartの機能を活かし、自然な構文、高速に</li>
+						<li>
+							<s>早速GitHubの最終更新日が2週間前</s>
+						</li>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h3>DDC(Dart Dev Compiler)</h3>
+					<ul>
+						<li>静的チェックを行い可読性の高いES2015を吐くコンパイラ</li>
+						<ul>
+							<li>dart2jsが吐くjsを人が読むのはキツい、サイズも大きい</li>
+							<li>静的チェックの情報をjsへのコンパイルに使う</li>
+						</ul>
+						<li>Strong mode</li>
+						<ul>
+							<li>Dartの言語標準より厳しいチェックで実行時エラーを減らす</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h3>Flutter</h3>
+					<ul>
+						<li>Dartでモバイルアプリを書くフレームワーク</li>
+						<li>コンセプト</li>
+						<ul>
+							<li>高い生産性</li>
+							<li>ハイパフォーマンス</li>
+							<li>クロスプラットフォーム(Android/iOS)</li>
+						</ul>
+						<li>詳しくは後述</li>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h3>Fuchsia</h3>
+					<ul>
+						<li>Googleが開発中のオープンソースOS</li>
+						<li>LinuxカーネルにかわりMagentaを採用</li>
+						<li>組み込み〜スマートフォン〜PCがターゲット</li>
+						<li>主なプログラミング言語はDart、UIはFlutter</li>
+					</ul>
+				</section>
+
+				<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
+					<h1 style="color: black;">Dartの未来は
+						<br />
+						<b>明るい！！</b>
+					</h1>
+					<h2 style="color: black;">そう信じる気持ちが大事！！</h2>
+				</section>
+			</section>
+
+			<section>
+
+				<section>
+					<h1>Dartをはじめる</h1>
 				</section>
 
 				<section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h2>Dartってどんな言語？</h2>
-						<ul>
-							<li>2011年にGoogleが発表</li>
-							<li>Java、JSに似たシンタックスの動的型付け言語</li>
-							<ul>
-								<li>JITコンパイルされ、DartVM上で動作する</li>
-								<li>dart2jsでJSに変換できるのでブラウザでも動く</li>
-							</ul>
-							<li>ECMA-408で標準化されている</li>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h2>触ってみた感触としては</h2>
-						<ul>
-							<li>Java,JS等がかければすんなり書ける</li>
-							<li>型を書いても書かなくてもいい &#x1F633;</li>
-							<li>async/await, class周りのサポート</li>
-							<li>パッケージマネージャー、IDEサポートの充実</li>
-							<li>"ちょうどいい"言語</li>
-							<ul>
-								<li>Javaのレガシーさを取り除いている</li>
-								<li>Goほど記述量は多くない</li>
-								<li>Scalaほど難しくない</li>
-							</ul>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h2>歴史</h2>
-						<ul>
-							<li>当初はブラウザ上で動作し、JavaScriptを置き換える目的</li>
-							<ul>
-								<li>各ブラウザがDartVMを搭載する必要がある &#x1f628;</li>
-								<li>やっぱりそれは無理なのであきらめた</li>
-								<li>(dart2jsでJSに変換して動かすことはできる)</li>
-							</ul>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h3>それから時は流れ…</h3>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h2>2016年、Dart復権の兆し？</h2>
-						<ul>
-							<li>2016年にGoogle社内で一番書かれたプログラミング言語はDart</li>
-							<li>書きやすさと動作速度からRubyに代わってSassの実装に採用される</li>
-							<li>大きな収益を持つGoogle AdSense/AdWordsのフロントエンドがAngular Dartで書き換えられる</li>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h3>少なくともGoogleは本気っぽい？</h3>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h3>これからのDart</h3>
-						<ul>
-							<li>現在活発な主なプロジェクト</li>
-							<ul>
-								<li>Angular Dart</li>
-								<li>DDC(Dart Dev Compiler)</li>
-								<li>Flutter</li>
-								<li>Fuchsia</li>
-							</ul>
-						</ul>
-						<p><b>あくまで「現時点の情報では」です！</b></p>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h3>Angular Dart</h3>
-						<ul>
-							<li>Angular2からそれまでJS/TSと共通だったコードベースを分離</li>
-							<ul>
-								<li><a href="https://github.com/dart-lang/angular2">https://github.com/dart-lang/angular2</a></li>
-							</ul>
-							<li>専任のAngularDartチームができた</li>
-							<li>よりDartの機能を活かし、自然な構文、高速に</li>
-							<li><s>早速GitHubの最終更新日が2週間前</s></li>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h3>DDC(Dart Dev Compiler)</h3>
-						<ul>
-							<li>静的チェックを行い可読性の高いES2015を吐くコンパイラ</li>
-							<ul>
-								<li>dart2jsが吐くjsを人が読むのはキツい、サイズも大きい</li>
-								<li>静的チェックの情報をjsへのコンパイルに使う</li>
-							</ul>
-							<li>Strong mode</li>
-							<ul>
-								<li>Dartの言語標準より厳しいチェックで実行時エラーを減らす</li>
-							</ul>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h3>Flutter</h3>
-						<ul>
-							<li>Dartでモバイルアプリを書くフレームワーク</li>
-							<li>コンセプト</li>
-							<ul>
-								<li>高い生産性</li>
-								<li>ハイパフォーマンス</li>
-								<li>クロスプラットフォーム(Android/iOS)</li>
-							</ul>
-							<li>詳しくは後述</li>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h3>Fuchsia</h3>
-						<ul>
-							<li>Googleが開発中のオープンソースOS</li>
-							<li>LinuxカーネルにかわりMagentaを採用</li>
-							<li>組み込み〜スマートフォン〜PCがターゲット</li>
-							<li>主なプログラミング言語はDart、UIはFlutter</li>
-						</ul>
-					</section>
-
-					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
-						<h1 style="color: black;">Dartの未来は<br /><b>明るい！！</b></h1>
-						<h2 style="color: black;">そう信じる気持ちが大事！！</h2>
-					</section>
+					<h2>Dartのインストール</h2>
 				</section>
 
 				<section>
-
-					<section>
-						<h1>Dartをはじめる</h1>
-					</section>
-
-					<section>
-						<h2>Dartのインストール</h2>
-					</section>
-
-					<section>
-						<h2>Mac</h2>
-						<pre><code data-trim data-noescape>
+					<h2>Mac</h2>
+					<pre><code data-trim data-noescape>
 							$ brew tap dart-lang/dart
 							$ brew install dart
 							# Web開発するならDartiumも一緒にインストールする
@@ -260,227 +250,209 @@
 							$ export PATH=$PATH:path/to/installed/dart/bin
 						</code></pre>
 
-						<h2>Windows</h2>
-						<pre><code data-trim data-noescape>
+					<h2>Windows</h2>
+					<pre><code data-trim data-noescape>
 							> choco install dart-sdk -version 1.22
 							> choco install dartium  -version 1.22
 							> set PATH=%PATH%;C:path/to/installed/dart/bin
-						</code></pre>
+						</code></pre> Linuxは省略
+				</section>
 
-						Linuxは省略
-					</section>
+				<section class="code">
+					<h2>Dart Pad</h2>
+					<h3>ブラウザからDartを動かす</h3>
+					<a href="https://dartpad.dartlang.org/">https://dartpad.dartlang.org/</a>
+				</section>
 
-					<section>
-						<h2>Dart Pad</h2>
-						<h3>ブラウザからDartを動かす</h3>
-						<a href="https://dartpad.dartlang.org/">https://dartpad.dartlang.org/</a>
-					</section>
+				<section class="code">
+					<h3>Dart Padでコンソールアプリ</h3>
+					<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=90d9a3f974be1b272a2c1d6bf5ea8505' class="code"></iframe>
+				</section>
 
-					<section>
-						<h3>Dart Padでコンソールアプリ</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=90d9a3f974be1b272a2c1d6bf5ea8505' class="code"></iframe>
-					</section>
+				<section class="code">
+					<h3>WebアプリもOK</h3>
+					<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=49d384dac2fafda7d32978fb07ac0882' class="code"></iframe>
+				</section>
 
-					<section>
-						<h3>WebアプリもOK</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=49d384dac2fafda7d32978fb07ac0882' class="code"></iframe>
-					</section>
+				<section data-state="dimbg" data-background-image="image/intellij-dart.png" data-background-size="auto 80%">
+					<h1>IntelliJ plugin</h1>
+					<ul>
+						<li>シンタックスハイライト</li>
+						<li>デバッグ実行</li>
+						<li>などなど</li>
+					</ul>
+				</section>
 
-					<section data-state="dimbg"
-						data-background-image="image/intellij-dart.png"
-						data-background-size="auto 80%">
-						<h1>IntelliJ plugin</h1>
+				<section data-state="dimbg" data-background-image="image/intellij-dart-create-project.png" data-background-size="auto 80%">
+					<ul>
+						<li>Dartプロジェクトの新規作成</li>
 						<ul>
-							<li>シンタックスハイライト</li>
-							<li>デバッグ実行</li>
-							<li>などなど</li>
+							<li>コンソールアプリケーション</li>
+							<li>Webアプリケーション</li>
+							<li>Angularアプリケーション</li>
+							<li>Flutterアプリケーション</li>
 						</ul>
-					</section>
+					</ul>
+					<p>Dartで何かを作り始めたいとき便利！</p>
+				</section>
 
-					<section data-state="dimbg"
-						data-background-image="image/intellij-dart-create-project.png"
-						data-background-size="auto 80%">
-						<ul>
-							<li>Dartプロジェクトの新規作成</li>
-							<ul>
-								<li>コンソールアプリケーション</li>
-								<li>Webアプリケーション</li>
-								<li>Angularアプリケーション</li>
-								<li>Flutterアプリケーション</li>
-							</ul>
-						</ul>
-						<p>Dartで何かを作り始めたいとき便利！</p>
-					</section>
+				<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
+					<h2 style="color: black;">Dart Padですぐ始められる！</h2>
+					<h2 style="color: black;">IntelliJ pluginもある！</h2>
+				</section>
 
-					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
-						<h2 style="color: black;">Dart Padですぐ始められる！</h2>
-						<h2 style="color: black;">IntelliJ pluginもある！</h2>
-					</section>
+				<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
+					<h1 style="color: black;">あなたとDart</h1>
+					<h1 style="color: black;">いますぐダウンロー</h1>
+					<h1 style="color: black;">ド &#x1F4AA;</h1>
+				</section>
+			</section>
 
-					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
-						<h1 style="color: black;">あなたとDart</h1>
-						<h1 style="color: black;">いますぐダウンロー</h1>
-						<h1 style="color: black;">ド &#x1F4AA;</h1>
-					</section>
+			<section>
+				<section class="code">
+					<h2>Dartのシンタックス</h2>
+				</section>
+
+				<section class="code">
+					<h3>Javaっぽいシンタックス</h3>
+					<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=5674ef919c8edf966901d4082aae5081' class="code"></iframe>
+				</section>
+
+				<section class="code">
+					<h3>Optional Types</h3>
+					<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=f4effd6be0ce4db13d965c30b553de7a' class="code"></iframe>
+				</section>
+
+				<section class="code">
+					<h3>DOM API</h3>
+					<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=9c3d87970fb4ff1f0aa8a6d312c0d031' class="code"></iframe>
+				</section>
+
+				<section class="code">
+					<h3>Cascade notation</h3>
+					<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=0ef0cbf2f0912d14abd0bf8321fdc795' class="code"></iframe>
+				</section>
+
+				<section class="code">
+					<h3>async/await</h3>
+					<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=a0420f99e9c3de6ed63fa1efbbf66b50' class="code"></iframe>
+				</section>
+
+				<section class="code">
+					<h3>Stream</h3>
+					<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=e098bc76d6df8a029a9942f8a1fa13b8' class="code"></iframe>
 				</section>
 
 				<section>
-					<section>
-						<h2>Dartのシンタックス</h2>
-					</section>
+					<h3>ほかにもいろいろ</h3>
+					<ul>
+						<li>final, const</li>
+						<li>optional, named, default function parameters</li>
+						<li>named, factory constructor</li>
+						<li>class, mixin</li>
+						<li>generics</li>
+						<li>など</li>
+					</ul>
+					<a href="https://www.dartlang.org/guides/language/language-tour">https://www.dartlang.org/guides/language/language-tour</a>
+				</section>
 
-					<section>
-						<h3>Javaっぽいシンタックス</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=5674ef919c8edf966901d4082aae5081' class="code"></iframe>
-					</section>
+				<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
+					<h2 style="color: black;">馴染みのある構文</h2>
+					<h2 style="color: black;">必要十分な機能</h2>
+					<h3 style="color: black;">今から書ける、それがDart &#x1F4AA;</h3>
+				</section>
+			</section>
 
-					<section>
-						<h3>Optional Types</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=f4effd6be0ce4db13d965c30b553de7a' class="code"></iframe>
-					</section>
+			<section>
 
-					<section>
-						<h3>DOM API</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=9c3d87970fb4ff1f0aa8a6d312c0d031' class="code"></iframe>
-					</section>
+				<section data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h1>Flutter</h1>
+				</section>
 
-					<section>
-						<h3>Cascade notation</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=0ef0cbf2f0912d14abd0bf8321fdc795' class="code"></iframe>
-					</section>
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>Flutterのコンセプト</h3>
 
-					<section>
-						<h3>async/await</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-html.html?id=a0420f99e9c3de6ed63fa1efbbf66b50' class="code"></iframe>
-					</section>
+					<ul>
+						<li>高い生産性</li>
+						<li>ハイパフォーマンス</li>
+						<li>クロスプラットフォーム(Android/iOS)</li>
+					</ul>
+				</section>
 
-					<section>
-						<h3>Stream</h3>
-						<iframe data-src='https://dartpad.dartlang.org/embed-dart.html?id=e098bc76d6df8a029a9942f8a1fa13b8' class="code"></iframe>
-					</section>
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>高い生産性</h3>
 
-					<section>
-						<h3>ほかにもいろいろ</h3>
+					<ul>
+						<li>Dart言語の生産性</li>
+						<li>関数型リアクティブフレームワーク</li>
+						<li>Material DesignのUIライブラリ</li>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>ハイパフォーマンス</h3>
+
+					<ul>
+						<li>モバイルの2D表示に特化して最適化されたレンダリングエンジン</li>
+						<li>WebViewなどを使用せずすべてネイティブ</li>
 						<ul>
-							<li>final, const</li>
-							<li>optional, named, default function parameters</li>
-							<li>named, factory constructor</li>
-							<li>class, mixin</li>
-							<li>generics</li>
-							<li>など</li>
+							<li>FlutterエンジンのC++コードは(Android: Android NDK, iOS: LLVM)でコンパイル</li>
+							<li>DartのコードはDartコンパイラでネイティブコードにAOTコンパイル</li>
 						</ul>
-						<a href="https://www.dartlang.org/guides/language/language-tour">https://www.dartlang.org/guides/language/language-tour</a>
-					</section>
-
-					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
-						<h2 style="color: black;">馴染みのある構文</h2>
-						<h2 style="color: black;">必要十分な機能</h2>
-						<h3 style="color: black;">今から書ける、それがDart &#x1F4AA;</h3>
-					</section>
+					</ul>
 				</section>
 
-				<section>
-
-					<section
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h1>Flutter</h1>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>Flutterのコンセプト</h3>
-					　<ul>
-							<li>高い生産性</li>
-							<li>ハイパフォーマンス</li>
-							<li>クロスプラットフォーム(Android/iOS)</li>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>高い生産性</h3>
-					　<ul>
-							<li>Dart言語の生産性</li>
-							<li>関数型リアクティブフレームワーク</li>
-							<li>Material DesignのUIライブラリ</li>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>ハイパフォーマンス</h3>
-					　<ul>
-							<li>モバイルの2D表示に特化して最適化されたレンダリングエンジン</li>
-							<li>WebViewなどを使用せずすべてネイティブ</li>
-							<ul>
-								<li>FlutterエンジンのC++コードは(Android: Android NDK, iOS: LLVM)でコンパイル</li>
-								<li>DartのコードはDartコンパイラでネイティブコードにAOTコンパイル</li>
-							</ul>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>クロスプラットフォーム(Android/iOS)</h3>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>触った印象</h3>
-						<h4>関数型でリアクティブ</h4>
-						　<ul>
-							<li>React/Fluxにインスパイアされたコンポーネント指向、状態管理、単方向データフロー</li>
-							<ul>
-								<li>コンポーネントの木構造を宣言的に記述</li>
-								<li>StatlessWidget, StatefulWidget, setState</li>
-								<li>React/Fluxやってれば大体そういう感じ</li>
-								<li>
-									<a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I" target="_blank">
-										Flutter System Architecture <i class="fa fa-external-link" aria-hidden="true"></i>
-									</a>
-								</li>
-							</ul>
-						</ul>
-					</section>
-
-					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
-						<h3 style="color: black;">言語ごと廃れる可能性を除けば</h3>
-						<h2 style="color: black;">理想的なフレームワーク</h2>
-					</section>
-
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>クロスプラットフォーム(Android/iOS)</h3>
 				</section>
 
-				<section>
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>触った印象</h3>
+					<h4>関数型でリアクティブ</h4>
 
-					<section
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h1>Flutterをはじめる</h1>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>Flutterをインストール</h3>
-						　<ul>
-							<li>Mac, Linuxにインストールできる</li>
-							<ul>
-								<li>Windowsは現在対応中</li>
-							</ul>
+					<ul>
+						<li>React/Fluxにインスパイアされたコンポーネント指向、状態管理、単方向データフロー</li>
+						<ul>
+							<li>コンポーネントの木構造を宣言的に記述</li>
+							<li>StatlessWidget, StatefulWidget, setState</li>
+							<li>React/Fluxやってれば大体そういう感じ</li>
+							<li>
+								<a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I" target="_blank">
+									Flutter System Architecture
+									<i class="fa fa-external-link" aria-hidden="true"></i>
+								</a>
+							</li>
 						</ul>
-					</section>
+					</ul>
+				</section>
 
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>Flutterをインストール</h3>
-						<pre><code data-trim data-noescape class="sh">
+				<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
+					<h3 style="color: black;">言語ごと廃れる可能性を除けば</h3>
+					<h2 style="color: black;">理想的なフレームワーク</h2>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h1>Flutterをはじめる</h1>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>Flutterをインストール</h3>
+
+					<ul>
+						<li>Mac, Linuxにインストールできる</li>
+						<ul>
+							<li>Windowsは現在対応中</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>Flutterをインストール</h3>
+					<pre><code data-trim data-noescape class="sh">
 							# ＿人人人人人人人人人人人人人人＿
 							# ＞　git cloneしてPATHを通す　＜
 							# ￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣
@@ -493,13 +465,11 @@
 
 							# XCodeでiOSシミュレーターとかAndroid Studioなどをインストール
 						</code></pre>
-					</section>
+				</section>
 
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>flutter create</h3>
-						<pre><code data-trim data-noescape class="sh">
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>flutter create</h3>
+					<pre><code data-trim data-noescape class="sh">
 							$ flutter create my-app
 							Creating project my-app...
 							Wrote 59 files.
@@ -513,82 +483,76 @@
 
 							Your main program file is lib/main.dart in the my-app directory.
 						</code></pre>
-					</section>
+				</section>
 
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>flutter run</h3>
-						<pre><code data-trim data-noescape class="sh">
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>flutter run</h3>
+					<pre><code data-trim data-noescape class="sh">
 							$ cd my-app
 							$ open -a Simulator # iOSシミュレータを起動
 							$ flutter run
 						</code></pre>
-					</section>
+				</section>
 
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<img data-src="image/flutter-create.png" alt="flutter app screen shot" style="height: 90vh;">
-					</section>
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<img data-src="image/flutter-create.png" alt="flutter app screen shot" style="height: 90vh;">
+				</section>
 
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>実機へのインストールも簡単 &#x1F60D;</h3>
-						<pre><code data-trim data-noescape class="sh">
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>実機へのインストールも簡単 &#x1F60D;</h3>
+					<pre><code data-trim data-noescape class="sh">
 							$ flutter build apk # flutter build ios でiOSビルド(MacOSのみ)
 							$ flutter install
 						</code></pre>
-						<p>小さなアプリでビルド20秒、インストール10秒 &#x1F680</p>
-						<p><small>iOSアプリをビルド・インストールするにはApple Developerアカウントの登録などが必要</small></p>
-					</section>
+					<p>小さなアプリでビルド20秒、インストール10秒 &#x1F680</p>
+					<p>
+						<small>iOSアプリをビルド・インストールするにはApple Developerアカウントの登録などが必要</small>
+					</p>
+				</section>
 
-					<section data-state="dimbg"
-						data-background-image="image/intellij-plugin.png"
-						data-background-size="auto 80%">
-						<h2>IntelliJのplugin</h2>
-						<ul>
-							<li>Flutterプロジェクトの新規作成</li>
-							<li>Cmd+d でデバッグ実行</li>
-							<li>Cmd+Alt+; でホットリロード</li>
-							<li>Shift+Cmd+Alt+; でフルリロード</li>
-						</ul>
-						<p class="fragment">webpackに慣れすぎて↑が無設定で動くことに感動 &#x1F62D;</p>
-					</section>
-
-					<section>
-						<h2>公式のexamplesがすごい</h2>
-						<ul>
-							<li><a href="https://github.com/flutter/flutter/tree/master/examples">https://github.com/flutter/flutter/tree/master/examples</a></li>
-							<li>Flutter-materialで用意されているWidgetが一通りありそう</li>
-							<li>flutter installして実機で触れる</li>
-						</ul>
-					</section>
-
-					<section data-background="image/flutter-gallery-02.gif" data-background-size="contain">
-					</section>
-
-					<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
-						<h3 style="color: black;">git cloneはアレだけど...</h3>
-						<h3 style="color: black;">便利なCLIが用意されている！</h3>
-						<h3 style="color: black;">IDEの連携もあり開発・デバッグが非常に楽！</h3>
-						<h3 style="color: black;">今後に期待できる &#x1F4AA;</h3>
-					</section>
-
+				<section data-state="dimbg" data-background-image="image/intellij-plugin.png" data-background-size="auto 80%">
+					<h2>IntelliJのplugin</h2>
+					<ul>
+						<li>Flutterプロジェクトの新規作成</li>
+						<li>Cmd+d でデバッグ実行</li>
+						<li>Cmd+Alt+; でホットリロード</li>
+						<li>Shift+Cmd+Alt+; でフルリロード</li>
+					</ul>
+					<p class="fragment">webpackに慣れすぎて↑が無設定で動くことに感動 &#x1F62D;</p>
 				</section>
 
 				<section>
-					
-					<section
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h1>Flutter 入門</h1>	
-					</section>
+					<h2>公式のexamplesがすごい</h2>
+					<ul>
+						<li>
+							<a href="https://github.com/flutter/flutter/tree/master/examples">https://github.com/flutter/flutter/tree/master/examples</a>
+						</li>
+						<li>Flutter-materialで用意されているWidgetが一通りありそう</li>
+						<li>flutter installして実機で触れる</li>
+					</ul>
+				</section>
 
-					<section>
-						<h2>プロジェクト構成</h2>
-						<pre><code data-trim data-noescape>
+				<section data-background="image/flutter-gallery-02.gif" data-background-size="contain">
+				</section>
+
+				<section data-background-transition="zoom" data-background-image="image/dart_bird.png">
+					<h3 style="color: black;">git cloneはアレだけど...</h3>
+					<h3 style="color: black;">便利なCLIが用意されている！</h3>
+					<h3 style="color: black;">IDEの連携もあり開発・デバッグが非常に楽！</h3>
+					<h3 style="color: black;">今後に期待できる &#x1F4AA;</h3>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h1>Flutter 入門</h1>
+				</section>
+
+				<section>
+					<h2>プロジェクト構成</h2>
+					<pre><code data-trim data-noescape>
 							$ flutter create my-app
 							my-app
 							├── android
@@ -597,11 +561,11 @@
 							│   └── main.dart # アプリケーションのエントリーポイント
 							└── pubspec.yaml # package.jsonとかpom.xmlみたいなの
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h2>Flutter アプリ最小構成</h2>
-						<pre><code data-trim data-noescape class="dart">
+				<section>
+					<h2>Flutter アプリ最小構成</h2>
+					<pre><code data-trim data-noescape class="dart">
 							// lib/main.dart
 							import 'package:flutter/material.dart';
 
@@ -613,43 +577,43 @@
 								);
 							}
 						</code></pre>
-						<ul>
-							<li>エントリーポイントはlib/main.dartのmain関数</li>
-							<li>runApp関数にWidgetのインスタンスを渡す</li>
-							<li>Widgetは子(child/children)を持ち、Widgetの木構造を宣言的に記述する</li>
-						</ul>
-					</section>
+					<ul>
+						<li>エントリーポイントはlib/main.dartのmain関数</li>
+						<li>runApp関数にWidgetのインスタンスを渡す</li>
+						<li>Widgetは子(child/children)を持ち、Widgetの木構造を宣言的に記述する</li>
+					</ul>
+				</section>
 
-					<section>
-						<h2>Widget</h2>
+				<section>
+					<h2>Widget</h2>
+					<ul>
+						<li>ReactでいうComponent</li>
+						<li>コンポーネント化されたUI部品</li>
+						<li>StatelessWidget, StatefulWidgetがある</li>
+						<li>親から子へデータを渡す</li>
 						<ul>
-							<li>ReactでいうComponent</li>
-							<li>コンポーネント化されたUI部品</li>
-							<li>StatelessWidget, StatefulWidgetがある</li>
-							<li>親から子へデータを渡す</li>
-							<ul>
-								<li>子Widgetのコンストラクタに引数として</li>
-								<li>Reactならprops</li>
-							</ul>
-							<li>子から親はコールバック関数</li>
+							<li>子Widgetのコンストラクタに引数として</li>
+							<li>Reactならprops</li>
 						</ul>
-					</section>
+						<li>子から親はコールバック関数</li>
+					</ul>
+				</section>
 
-					<section>
-						<h2>更新と差分反映</h2>
-						<ul>
-							<li>Flutterはユーザーの操作などでデータの変更があった場合、関係するWidgetのみbuildを再実行する</li>
-							<li>Reactと同じで富豪的、宣言的にUIを書きつつ動作速度を落とさない</li>
-						</ul>
-					</section>
+				<section>
+					<h2>更新と差分反映</h2>
+					<ul>
+						<li>Flutterはユーザーの操作などでデータの変更があった場合、関係するWidgetのみbuildを再実行する</li>
+						<li>Reactと同じで富豪的、宣言的にUIを書きつつ動作速度を落とさない</li>
+					</ul>
+				</section>
 
-					<section>
-						<h2>StatelessWidget</h2>
-						<ul>
-							<li>StatelessWidgetを継承したクラスにbuildメソッドをoverrideする</li>
-							<li>React.Componentと同じですね &#x1F607;</li>
-						</ul>
-						<pre><code data-trim data-noescape class="dart">
+				<section>
+					<h2>StatelessWidget</h2>
+					<ul>
+						<li>StatelessWidgetを継承したクラスにbuildメソッドをoverrideする</li>
+						<li>React.Componentと同じですね &#x1F607;</li>
+					</ul>
+					<pre><code data-trim data-noescape class="dart">
 							class HelloWorld extends StatelessWidget {
 								// コンストラクタ
 								// {}の中は名前付き引数 new HelloWorld(name: 'foo');
@@ -663,24 +627,24 @@
 								}
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section data-background="image/flutter-reload.gif" data-background-size="contain">
-					</section>
+				<section data-background="image/flutter-reload.gif" data-background-size="contain">
+				</section>
 
-					<section>
-						<h2>StatefulWidget</h2>
-						<ul>
-							<li>状態を持つWidgetを作ることができる</li>
-							<li>StatefulWidgetクラスとState&lt;T&gt;クラスをつかう</li>
-						</ul>
-						<p>間違っとったらスマン！！ &#x1F633;</p>
-						<p>マサカリポイント！！！ &#x1F528;</p>
-					</section>
+				<section>
+					<h2>StatefulWidget</h2>
+					<ul>
+						<li>状態を持つWidgetを作ることができる</li>
+						<li>StatefulWidgetクラスとState&lt;T&gt;クラスをつかう</li>
+					</ul>
+					<p>間違っとったらスマン！！ &#x1F633;</p>
+					<p>マサカリポイント！！！ &#x1F528;</p>
+				</section>
 
-					<section>
-						<h2>StatefulWidget / State&lt;T&gt;</h2>
-						<pre><code data-trim data-noescape class="dart">
+				<section>
+					<h2>StatefulWidget / State&lt;T&gt;</h2>
+					<pre><code data-trim data-noescape class="dart">
 							class Counter extends StatefulWidget {
 								...
 
@@ -697,47 +661,47 @@
 								}
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h2>StatefulWidget / State&lt;T&gt;</h2>
+				<section>
+					<h2>StatefulWidget / State&lt;T&gt;</h2>
+					<ul>
+						<li>StatefulWidget</li>
 						<ul>
-							<li>StatefulWidget</li>
-							<ul>
-								<li>State&lt;T&gt;のインスタンスを持つ</li>
-							</ul>
-							<li>State&lt;T&gt;</li>
-							<ul>
-								<li>TはStatefulWidgetを継承したクラス</li>
-								<li>状態を内部で管理する</li>
-								<li>buildメソッドを持つ</li>
-							</ul>
+							<li>State&lt;T&gt;のインスタンスを持つ</li>
 						</ul>
-						<p>StatefulWidgetとState&lt;T&gt;の生存期間が違うとかなんとか</p>
-					</section>
-
-					<section data-state="dimbg" data-background="image/flutter-state-sample-01.gif" data-background-size="contain">
-						<h2>サンプル</h2>
-						<p>Counter Widget</p>
+						<li>State&lt;T&gt;</li>
 						<ul>
-							<li>親WidgetからTitleを受け取る</li>
-							<li>状態としてカウンターを持つ</li>
-							<li>ボタンを押したらカウンターを1増やす</li>
+							<li>TはStatefulWidgetを継承したクラス</li>
+							<li>状態を内部で管理する</li>
+							<li>buildメソッドを持つ</li>
 						</ul>
-					</section>
+					</ul>
+					<p>StatefulWidgetとState&lt;T&gt;の生存期間が違うとかなんとか</p>
+				</section>
 
-					<section data-background="image/flutter-state-sample-01.gif" data-background-size="contain">
-					</section>
+				<section data-state="dimbg" data-background="image/flutter-state-sample-01.gif" data-background-size="contain">
+					<h2>サンプル</h2>
+					<p>Counter Widget</p>
+					<ul>
+						<li>親WidgetからTitleを受け取る</li>
+						<li>状態としてカウンターを持つ</li>
+						<li>ボタンを押したらカウンターを1増やす</li>
+					</ul>
+				</section>
 
-					<section>
-						<h2>StatefulWidget</h2>
+				<section data-background="image/flutter-state-sample-01.gif" data-background-size="contain">
+				</section>
+
+				<section>
+					<h2>StatefulWidget</h2>
+					<ul>
+						<li>StatefulWidgetを継承したクラスにcreateStateメソッドをoverrideする</li>
 						<ul>
-							<li>StatefulWidgetを継承したクラスにcreateStateメソッドをoverrideする</li>
-							<ul>
-								<li>createStateの戻り値の型はState&lt;T&gt;を継承したクラス</li>
-							</ul>
+							<li>createStateの戻り値の型はState&lt;T&gt;を継承したクラス</li>
 						</ul>
-						<pre><code data-trim data-noescape class="dart">
+					</ul>
+					<pre><code data-trim data-noescape class="dart">
 							class Counter extends StatefulWidget {
 								Counter({Key key, this.title}) : super(key: key);
 
@@ -747,16 +711,16 @@
 								_CounterState createState() => new _CounterState();
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h2>StatefulWidget</h2>
-						<ul>
-							<li>コンストラクタの引数からデータを受け取ることができる</li>
-							<li>そのデータはStateクラスからも取得できるが、Stateの中からは更新しない</li>
-							<li>ReactでいうPropsやね！</li>
-						</ul>
-						<pre><code data-trim data-noescape class="dart">
+				<section>
+					<h2>StatefulWidget</h2>
+					<ul>
+						<li>コンストラクタの引数からデータを受け取ることができる</li>
+						<li>そのデータはStateクラスからも取得できるが、Stateの中からは更新しない</li>
+						<li>ReactでいうPropsやね！</li>
+					</ul>
+					<pre><code data-trim data-noescape class="dart">
 							class Counter extends StatefulWidget {
 								Counter({Key key, this.title}) : super(key: key);
 
@@ -766,15 +730,15 @@
 								_CounterState createState() => new _CounterState();
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h2>State&lt;T&gt;</h2>
-						<ul>
-							<li>StatefulWidgetを継承したクラスを型パラメータに取る</li>
-							<li>buildメソッドをoverrideする</li>
-						</ul>
-						<pre><code data-trim data-noescape class="dart">
+				<section>
+					<h2>State&lt;T&gt;</h2>
+					<ul>
+						<li>StatefulWidgetを継承したクラスを型パラメータに取る</li>
+						<li>buildメソッドをoverrideする</li>
+					</ul>
+					<pre><code data-trim data-noescape class="dart">
 							class Counter extends StatefulWidget {
 								...
 
@@ -791,14 +755,14 @@
 								}
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h2>State&lt;T&gt;</h2>
-						<ul>
-							<li>this.configが&lt;T&gt;の型になりアクセスできる</li>
-						</ul>
-						<pre><code data-trim data-noescape class="dart">
+				<section>
+					<h2>State&lt;T&gt;</h2>
+					<ul>
+						<li>this.configが&lt;T&gt;の型になりアクセスできる</li>
+					</ul>
+					<pre><code data-trim data-noescape class="dart">
 							class Counter extends StatefulWidget {
 								...
 								final String title;
@@ -814,14 +778,14 @@
 								}
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h2>State&lt;T&gt;</h2>
-						<ul>
-							<li>状態を変更するにはsetStateメソッドの中で自身のメンバ変数を変更する</li>
-						</ul>
-						<pre><code data-trim data-noescape class="dart">
+				<section>
+					<h2>State&lt;T&gt;</h2>
+					<ul>
+						<li>状態を変更するにはsetStateメソッドの中で自身のメンバ変数を変更する</li>
+					</ul>
+					<pre><code data-trim data-noescape class="dart">
 							class _CounterState extends State&lt;Counter&gt; {
   							int _counter = 0;
 
@@ -837,11 +801,11 @@
 								}
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h2>コード全体</h2>
-						<pre><code data-trim data-noescape class="dart" style="height: 100vh; max-height: 100vh">
+				<section>
+					<h2>コード全体</h2>
+					<pre><code data-trim data-noescape class="dart" style="height: 100vh; max-height: 100vh">
 							import 'package:flutter/material.dart';
 
 							void main() {
@@ -887,149 +851,164 @@
 								}
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<table>
-							<caption>Reactとの比較</caption>
-							<thead>
+				<section>
+					<table>
+						<caption>Reactとの比較</caption>
+						<thead>
 							<tr>
 								<th>React</th>
 								<th>Flutter</th>
 							</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Component#props</td>
-									<td>StatefulWidgetのメンバ変数、State&lt;T&gt;のthis.config</td>
-								</tr>
-								<tr>
-									<td>Component#state</td>
-									<td>State&lt;T&gt;のメンバ変数</td>
-								</tr>
-								<tr>
-									<td>Component#setState</td>
-									<td>State&lt;T&gt;#setState</td>
-								</tr>
-							</tbody>
-						</table>
-					</section>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Component#props</td>
+								<td>StatefulWidgetのメンバ変数、State&lt;T&gt;のthis.config</td>
+							</tr>
+							<tr>
+								<td>Component#state</td>
+								<td>State&lt;T&gt;のメンバ変数</td>
+							</tr>
+							<tr>
+								<td>Component#setState</td>
+								<td>State&lt;T&gt;#setState</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
 
-					<section>
-						<table>
-							<caption>ライフサイクルメソッド</caption>
-							<thead>
+				<section>
+					<table>
+						<caption>ライフサイクルメソッド</caption>
+						<thead>
 							<tr>
 								<th>React Component</th>
 								<th>Flutter State&lt;T&gt;</th>
 							</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>componentDidMount <br />componentWillReceiveProps <br /> componentWillUnmount <br />など</td>
-									<td>initState <br /> didUpdateConfig <br /> dispose <br />など</td>
-								</tr>
-							</tbody>
-						</table>
-					</section>
+						</thead>
+						<tbody>
+							<tr>
+								<td>componentDidMount
+									<br />componentWillReceiveProps
+									<br /> componentWillUnmount
+									<br />など</td>
+								<td>initState
+									<br /> didUpdateConfig
+									<br /> dispose
+									<br />など</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
 
-					<section data-background-transition="zoom" data-background-image="image/flutter-mark.png" data-background-color="white">
-						<h3 style="color: black;">React/Fluxインスパイア</h3>
-						<h3 style="color: black;">Rectやってれば移行は容易そう</h3>
-						<h3 style="color: black;"><s>ReactNativeでよいのでは &#x1F607;</s></h3>
-					</section>
+				<section data-background-transition="zoom" data-background-image="image/flutter-mark.png" data-background-color="white">
+					<h3 style="color: black;">React/Fluxインスパイア</h3>
+					<h3 style="color: black;">Rectやってれば移行は容易そう</h3>
+					<h3 style="color: black;">
+						<s>ReactNativeでよいのでは &#x1F607;</s>
+					</h3>
+				</section>
 
+			</section>
+
+			<section>
+
+				<section>
+					<h1>最強の勤怠アプリを作った話</h1>
 				</section>
 
 				<section>
+					<h2>ここからはおまけみたいなもんです &#x1f602;</h2>
+				</section>
 
-					<section>
-						<h1>最強の勤怠アプリを作った話</h1>
-					</section>
+				<section data-state="dimbg" data-background="image/hrmos-kintai.png">
+					<h2>現在HRMOS勤怠管理というプロダクトを作っています</h2>
+				</section>
 
-					<section>
-						<h2>ここからはおまけみたいなもんです &#x1f602;</h2>
-					</section>
+				<section>
+					<h2>しかしそのアプリには問題があった...</h2>
+					<h3>※ 個人的な意見・感想です</h3>
+					<p class="fragment">出勤・退勤画面を御覧ください</p>
+				</section>
 
-					<section data-state="dimbg" data-background="image/hrmos-kintai.png">
-						<h2>現在HRMOS勤怠管理というプロダクトを作っています</h2>
-					</section>
+				<section data-background="image/problematic-product.gif" data-background-size="contain">
+				</section>
 
-					<section>
-						<h2>しかしそのアプリには問題があった...</h2>
-						<h3>※ 個人的な意見・感想です</h3>
-						<p class="fragment">出勤・退勤画面を御覧ください</p>
-					</section>
-
-					<section data-background="image/problematic-product.gif" data-background-size="contain">
-					</section>
-
-					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
-						<h2>そっけない</h2>
-						<p><b>※ 個人的な感想・意見です</b></p>
+				<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
+					<h2>そっけない</h2>
+					<p>
+						<b>※ 個人的な感想・意見です</b>
+					</p>
+					<ul>
+						<li>みんないろいろな思いを抱えて出勤・退勤しているはず</li>
 						<ul>
-							<li>みんないろいろな思いを抱えて出勤・退勤しているはず</li>
+							<li>「めちゃ疲れてるけど今日も仕事頑張るぞ…！」</li>
+							<li>「今日も俺よく働いた！えらい！」</li>
+							<li>
+								<s>「3時までゲームしてたから超眠いけどなんとか出勤できた」</s>
+							</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
+					<h3>開発当初同様の指摘はあった！</h3>
+				</section>
+
+				<section data-background="image/declined-by-leader.png" data-background-size="contain">
+				</section>
+
+				<section data-background="image/declined-by-leader.png" data-background-size="contain" data-state="dimbg">
+					<h3>たしかに</h3>
+				</section>
+
+				<section data-background="image/declined-by-leader-detail.png" data-background-size="contain" data-state="dimbg">
+					<h3>開発リーダーによる謎のスルー</h3>
+					<ul>
+						<li>開発リーダーによる「
+							<b>たしかに</b>」という回答</li>
+						<li>しかしチケットに起票されるわけでもない</li>
+					</ul>
+					<p>
+						<b>※ 実際は謎でも何でもない適切な判断が行われています</b>
+					</p>
+				</section>
+
+				<section data-background="image/declined-by-leader-detail.png" data-background-size="contain" data-state="dimbg">
+					<h2>だったら自分で作るしかない！！ &#x1F4AA; &#x1F4AA;</h2>
+				</section>
+
+				<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
+					<h2>みんなの勤怠に込めた思いを受け止める</h2>
+					<h3>そんな勤怠アプリをFlutterで作る！</h3>
+				</section>
+
+				<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
+					<h3>設計</h3>
+					<ul>
+						<li>自分用、雑に作る</li>
+						<ul>
+							<li>出勤・退勤以外の機能はいらない</li>
 							<ul>
-								<li>「めちゃ疲れてるけど今日も仕事頑張るぞ…！」</li>
-								<li>「今日も俺よく働いた！えらい！」</li>
-								<li><s>「3時までゲームしてたから超眠いけどなんとか出勤できた」</s></li>
+								<li>本家は有給申請とかいろいろできる！</li>
+							</ul>
+							<li>アプリにログイン情報埋め込んで起動時に毎回ログイン</li>
+							<li>ログイン、出勤、退勤のHTTPリクエストをHRMOSサーバーに送る</li>
+							<ul>
+								<li>APIを公開してるわけではなく開発者だから知ってる内部的なAPIを叩いてます</li>
 							</ul>
 						</ul>
-					</section>
+					</ul>
+				</section>
 
-					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
-						<h3>開発当初同様の指摘はあった！</h3>
-					</section>
+				<section>
+					<h2>HTTPのやり取りする処理を作る</h2>
+				</section>
 
-					<section data-background="image/declined-by-leader.png" data-background-size="contain">
-					</section>
-
-					<section data-background="image/declined-by-leader.png" data-background-size="contain" data-state="dimbg">
-						<h3>たしかに</h3>
-					</section>
-
-					<section data-background="image/declined-by-leader-detail.png" data-background-size="contain" data-state="dimbg">
-						<h3>開発リーダーによる謎のスルー</h3>
-						<ul>
-							<li>開発リーダーによる「<b>たしかに</b>」という回答</li>
-							<li>しかしチケットに起票されるわけでもない</li>
-						</ul>
-						<p><b>※ 実際は謎でも何でもない適切な判断が行われています</b></p>
-					</section>
-
-					<section data-background="image/declined-by-leader-detail.png" data-background-size="contain" data-state="dimbg">
-						<h2>だったら自分で作るしかない！！ &#x1F4AA; &#x1F4AA;</h2>
-					</section>
-
-					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
-						<h2>みんなの勤怠に込めた思いを受け止める</h2>
-						<h3>そんな勤怠アプリをFlutterで作る！</h3>
-					</section>
-
-					<section data-background="image/problematic-product.gif" data-background-size="contain" data-state="dimbg">
-						<h3>設計</h3>
-						<ul>
-							<li>自分用、雑に作る</li>
-							<ul>
-								<li>出勤・退勤以外の機能はいらない</li>
-								<ul>
-									<li>本家は有給申請とかいろいろできる！</li>
-								</ul>
-								<li>アプリにログイン情報埋め込んで起動時に毎回ログイン</li>
-								<li>ログイン、出勤、退勤のHTTPリクエストをHRMOSサーバーに送る</li>
-								<ul>
-									<li>APIを公開してるわけではなく開発者だから知ってる内部的なAPIを叩いてます</li>
-								</ul>
-							</ul>
-						</ul>
-					</section>
-
-					<section>
-						<h2>HTTPのやり取りする処理を作る</h2>
-					</section>
-
-					<section>
-						<pre><code data-trim data-noescape class="dart" style="height: 100vh; max-height: 90vh">
+				<section>
+					<pre><code data-trim data-noescape class="dart" style="height: 100vh; max-height: 90vh">
 							import 'package:flutter/http.dart' as http;
 
 							Future&lt;bool&gt; signin() async {
@@ -1051,78 +1030,79 @@
 								// responseをよしなに処理
 							}
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h3>ログイン・出勤・退勤処理はできた</h3>
-						<p>Futureが返ってくる普通の使いやすいhttpクライアントがあった</p>
-					</section>
+				<section>
+					<h3>ログイン・出勤・退勤処理はできた</h3>
+					<p>Futureが返ってくる普通の使いやすいhttpクライアントがあった</p>
+				</section>
 
-					<section>
-						<h3>Httpクライントの注意点</h3>
-						<p>Universalなhttpクライアントがない</p>
-						<p>どこでも動くDartだから、httpクライアントも当然どこでも動くと思いハマった &#x1F602;</p>
-					</section>
+				<section>
+					<h3>Httpクライントの注意点</h3>
+					<p>Universalなhttpクライアントがない</p>
+					<p>どこでも動くDartだから、httpクライアントも当然どこでも動くと思いハマった &#x1F602;</p>
+				</section>
 
-					<section>
-						<h3>プラットフォームごとのhttpクライアント</h3>
-						<dl>
-							<dt>dart:io</dt>
-							<dd>サーバーサイドDartVM向け</dd>
-							<dt>package:http</dt>
-							<dd>サーバーサイド向けClientとブラウザ上向けBrowserClient</dd>
-							<dt>package:flutter/http.dart</dt>
-							<dd>flutter向け</dd>
-						</dl>
-						<p><a href="https://github.com/dart-lang/http/issues/1">dart-lang/http</a>にIssueがあり、コメントによると4月には解決する？</p>
-					</section>
+				<section>
+					<h3>プラットフォームごとのhttpクライアント</h3>
+					<dl>
+						<dt>dart:io</dt>
+						<dd>サーバーサイドDartVM向け</dd>
+						<dt>package:http</dt>
+						<dd>サーバーサイド向けClientとブラウザ上向けBrowserClient</dd>
+						<dt>package:flutter/http.dart</dt>
+						<dd>flutter向け</dd>
+					</dl>
+					<p>
+						<a href="https://github.com/dart-lang/http/issues/1">dart-lang/http</a>にIssueがあり、コメントによると4月には解決する？</p>
+				</section>
 
-					<section>
-						<h2>アニメーション</h2>
-						<p>出勤・退勤時にアニメーションしてユーザーの気持ちを受け止めたい</p>
-					</section>
+				<section>
+					<h2>アニメーション</h2>
+					<p>出勤・退勤時にアニメーションしてユーザーの気持ちを受け止めたい</p>
+				</section>
 
-					<section>
-						<h3>アニメーションを実装するには</h3>
-						<p>Animation&lt;T&gt;とAnimationControllerを使う</p>
-					</section>
+				<section>
+					<h3>アニメーションを実装するには</h3>
+					<p>Animation&lt;T&gt;とAnimationControllerを使う</p>
+				</section>
 
-					<section>
-						<h3>Animation&lt;T&gt;</h3>
+				<section>
+					<h3>Animation&lt;T&gt;</h3>
+					<ul>
+						<li>変化する値(型はT)を持つクラス</li>
+						<li>その値をアニメーションに使う</li>
 						<ul>
-							<li>変化する値(型はT)を持つクラス</li>
-							<li>その値をアニメーションに使う</li>
-							<ul>
-								<li>例: Animation&lt;double&gt;の値をWidgetの表示位置に使ってアニメーションする</li>
-							</ul>
+							<li>例: Animation&lt;double&gt;の値をWidgetの表示位置に使ってアニメーションする</li>
 						</ul>
-						<pre><code data-trim data-noescape class="dart">
+					</ul>
+					<pre><code data-trim data-noescape class="dart">
 							new Positioned(
 								top: animation.value * 200.0, // 0から200の間の値を変化
 								child: new Text('上から下に動くぞ！')
 							);
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h3>AnimationController</h3>
+				<section>
+					<h3>AnimationController</h3>
+					<ul>
+						<li>Animationの値の変化を管理する</li>
 						<ul>
-							<li>Animationの値の変化を管理する</li>
-							<ul>
-								<li>例: ボタンのonPressイベントでAnimationController#stopメソッドを実行してAnimationの値の変化を停止</li>
-							</ul>
+							<li>例: ボタンのonPressイベントでAnimationController#stopメソッドを実行してAnimationの値の変化を停止</li>
 						</ul>
-						<pre><code data-trim data-noescape class="dart">
+					</ul>
+					<pre><code data-trim data-noescape class="dart">
 							new FloatingActionButton(
 								child: new Text('押すと止まる'),
 								onPressed: () => _animationController.stop(),
 							);
 						</code></pre>
-					</section>
+				</section>
 
-					<section>
-						<h3>だいたいこうなる</h3>
-						<pre><code data-trim data-noescape class="dart" style="height: 90vh; max-height: 90vh">
+				<section>
+					<h3>だいたいこうなる</h3>
+					<pre><code data-trim data-noescape class="dart" style="height: 90vh; max-height: 90vh">
 							// 2秒間にAnimationの値を初期値から終了値まで変化させる
 							// AnimationControllerをつくり、forwardメソッドで開始する
 							_controller = new AnimationController(
@@ -1143,111 +1123,109 @@
 								opacity: _animation.value
 							)
 						</code></pre>
-					</section>
-
-					<section>
-						<h3>アニメーションできた</h3>
-						<p>exampleにアニメーションのサンプルがあった &#x1F602;</p>
-						<p>公式ドキュメントだけじゃ実装できなかった</p>
-					</section>
-
-					<section>
-						<h2>そして最強の勤怠アプリが完成した</h2>
-					</section>
-
-					<section>
-						<h3>出勤</h3>
-					</section>
-
-					<section data-background="image/app-come-to-work.gif" data-background-size="contain">
-					</section>
-
-					<section data-state="dimbg" data-background="image/app-come-to-work.gif" data-background-size="contain">
-						<h3>出勤のしがいがある！</h3>
-					</section>
-
-					<section>
-						<h3>退勤</h3>
-					</section>
-
-					<section data-background="image/app-go-home.gif" data-background-size="contain">
-					</section>
-
-					<section data-state="dimbg" data-background="image/app-go-home.gif" data-background-size="contain">
-						<h3>一日の疲れをねぎらってくれる！</h3>
-					</section>
-
-					<section data-background-transition="zoom" data-background-image="image/flutter-mark.png" data-background-color="white">
-						<h2 style="color: black;">ユーザーの気持ちに寄り添う最強の勤怠アプリが完成した</h2>
-						<h4 style="color: black;">いろいろすいません</h4>
-						<h4 style="color: black;">アプリ開発にはいろいろなセンスが必要という学びを得た &#x1F607;</h4>
-					</section>
-
 				</section>
 
 				<section>
-					
-					<section>
-						<h1>まとめ</h1>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/dart-logo-400x400.png"
-						data-background-size="auto 80%">
-						<h3>Dart</h3>
-						<ul>
-							<li>DDCなどまだこれからな部分がある</li>
-							<li>Googleが本気なのかどうなのか！？ &#x1F62D;</li>
-							<li>言語自体は学習コストが低く必要十分な機能で書きやすい</li>
-						</ul>
-					</section>
-
-					<section data-state="dimbg"
-						data-background-image="image/flutter-mark.png"
-						data-background-size="auto 80%">
-						<h3>Flutter</h3>
-						<ul>
-							<li>React/Fluxインスパイアで書きやすい</li>
-							<li>iOS/Androidのアプリが一つのコードでカバーできて強い</li>
-							<li>Material Design以外の実装をしたい場合はきつそう</li>
-						</ul>
-					</section>
-
-					<section data-background-transition="zoom" data-background-image="image/dart_bird.png" data-background-color="white">
-						<h2 style="color: black;">Dart, Flutterともにとても良いと思います</h2>
-						<h1 style="color: black;">Googleさんオナシャス &#x1F62D;</h1>
-					</section>
-
-					<section data-background-transition="zoom" data-background-image="image/dart_bird.png" data-background-color="white">
-						<h1 style="color: black;">おわり</h1>
-					</section>
-
+					<h3>アニメーションできた</h3>
+					<p>exampleにアニメーションのサンプルがあった &#x1F602;</p>
+					<p>公式ドキュメントだけじゃ実装できなかった</p>
 				</section>
-			</div>
+
+				<section>
+					<h2>そして最強の勤怠アプリが完成した</h2>
+				</section>
+
+				<section>
+					<h3>出勤</h3>
+				</section>
+
+				<section data-background="image/app-come-to-work.gif" data-background-size="contain">
+				</section>
+
+				<section data-state="dimbg" data-background="image/app-come-to-work.gif" data-background-size="contain">
+					<h3>出勤のしがいがある！</h3>
+				</section>
+
+				<section>
+					<h3>退勤</h3>
+				</section>
+
+				<section data-background="image/app-go-home.gif" data-background-size="contain">
+				</section>
+
+				<section data-state="dimbg" data-background="image/app-go-home.gif" data-background-size="contain">
+					<h3>一日の疲れをねぎらってくれる！</h3>
+				</section>
+
+				<section data-background-transition="zoom" data-background-image="image/flutter-mark.png" data-background-color="white">
+					<h2 style="color: black;">ユーザーの気持ちに寄り添う最強の勤怠アプリが完成した</h2>
+					<h4 style="color: black;">いろいろすいません</h4>
+					<h4 style="color: black;">アプリ開発にはいろいろなセンスが必要という学びを得た &#x1F607;</h4>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section>
+					<h1>まとめ</h1>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/dart-logo-400x400.png" data-background-size="auto 80%">
+					<h3>Dart</h3>
+					<ul>
+						<li>DDCなどまだこれからな部分がある</li>
+						<li>Googleが本気なのかどうなのか！？ &#x1F62D;</li>
+						<li>言語自体は学習コストが低く必要十分な機能で書きやすい</li>
+					</ul>
+				</section>
+
+				<section data-state="dimbg" data-background-image="image/flutter-mark.png" data-background-size="auto 80%">
+					<h3>Flutter</h3>
+					<ul>
+						<li>React/Fluxインスパイアで書きやすい</li>
+						<li>iOS/Androidのアプリが一つのコードでカバーできて強い</li>
+						<li>Material Design以外の実装をしたい場合はきつそう</li>
+					</ul>
+				</section>
+
+				<section data-background-transition="zoom" data-background-image="image/dart_bird.png" data-background-color="white">
+					<h2 style="color: black;">Dart, Flutterともにとても良いと思います</h2>
+					<h1 style="color: black;">Googleさんオナシャス &#x1F62D;</h1>
+				</section>
+
+				<section data-background-transition="zoom" data-background-image="image/dart_bird.png" data-background-color="white">
+					<h1 style="color: black;">おわり</h1>
+				</section>
+
+			</section>
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: false,
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{
+					src: 'plugin/highlight/highlight.js', async: true, callback: function () {
 						hljs.configure({
 							tabReplace: '  ' // 2 spaces
 						})
 						hljs.initHighlightingOnLoad();
-						}
 					}
-				]
-			});
-		</script>
-	</body>
+				}
+			]
+		});
+	</script>
+</body>
+
 </html>
